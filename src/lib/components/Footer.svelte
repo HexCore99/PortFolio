@@ -1,137 +1,215 @@
 <script lang="ts">
+	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
 	import { profile } from '#lib/data/portfolio.js';
 </script>
 
 <footer id="contact">
-	<div class="contact-section">
-		<div class="contact-panel container">
-			<div>
-				<p class="eyebrow">04 / GET IN TOUCH</p>
-				<h2>LET’S BUILD<br />SOMETHING USEFUL.</h2>
-				<p class="contact-copy">Have a role or a project in mind? Let’s talk about it.</p>
+	<div class="contact-section container">
+		<div class="contact-main">
+			<h2>Have something<br />in <span>mind?</span></h2>
+			<div class="contact-copy">
+				<p>A role, a project, or a technical conversation.<br />I’d be happy to hear from you.</p>
+				<a class="email-address" href={'mailto:' + profile.email}
+					>{profile.email}<Icon name="arrow" size={20} /></a
+				>
 			</div>
-			<a class="button button-stone email-link" href={'mailto:' + profile.email}
-				>{profile.email}<Icon name="arrow" size={21} /></a
-			>
+		</div>
+		<div class="contact-bottom">
+			<div class="contact-links">
+				<NeoButton
+					elevation={0}
+					hover={0}
+					active={0}
+					scale={false}
+					class="button button-primary"
+					href={'mailto:' + profile.email}
+					><Icon name="mail" size={19} /> Say hello <Icon name="arrow" size={18} /></NeoButton
+				><NeoButton
+					elevation={0}
+					hover={0}
+					active={0}
+					scale={false}
+					class="button button-secondary"
+					href={profile.github}
+					{...{ target: '_blank', rel: 'noreferrer' }}
+					><Icon name="github" size={18} /> GitHub <Icon name="arrow" size={17} /><span
+						class="sr-only"
+					>
+						(opens in a new tab)</span
+					></NeoButton
+				><NeoButton
+					elevation={0}
+					hover={0}
+					active={0}
+					scale={false}
+					class="button button-secondary"
+					href={profile.linkedin}
+					{...{ target: '_blank', rel: 'noreferrer' }}
+					><Icon name="linkedin" size={18} /> LinkedIn <Icon name="arrow" size={17} /><span
+						class="sr-only"
+					>
+						(opens in a new tab)</span
+					></NeoButton
+				>
+			</div>
+			<a href="#top" class="back-top">Back to top <Icon name="arrow" size={19} /></a>
 		</div>
 	</div>
 	<div class="footer-bottom container">
-		<div>
-			<a href="#top" class="footer-brand" aria-label="Siabul Hassan, back to top"
-				>SIABUL HASSAN<span>_</span></a
-			>
-			<p>Software Developer · Built with SvelteKit · © {new Date().getFullYear()}</p>
-		</div>
-		<div class="footer-links">
-			<a class="button github" href={profile.github} target="_blank" rel="noreferrer"
-				>GitHub <Icon name="arrow" size={13} /><span class="sr-only"> (opens in a new tab)</span></a
-			><a class="button linkedin" href={profile.linkedin} target="_blank" rel="noreferrer"
-				>LinkedIn <Icon name="arrow" size={13} /><span class="sr-only">
-					(opens in a new tab)</span
-				></a
-			><a class="button email" href={'mailto:' + profile.email}
-				>Email <Icon name="arrow" size={13} /></a
-			>
-		</div>
+		<a href="#top" aria-label="Siabul Hassan, back to top"><strong>sh.</strong> Siabul Hassan</a>
+		<p>Built with SvelteKit.</p>
+		<span>© {new Date().getFullYear()}</span>
 	</div>
 </footer>
 
 <style>
 	footer {
-		scroll-margin-top: 80px;
+		scroll-margin-top: 105px;
+		padding-top: 15px;
 	}
 	.contact-section {
-		background: var(--mustard);
-		border-block: 3px solid var(--ink);
+		background: var(--ink);
+		color: var(--cream);
+		border: 1.5px solid var(--ink);
+		border-radius: 12px;
+		padding: 36px 44px;
 	}
-	.contact-panel {
-		padding-block: 55px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 30px;
+	.contact-section a:focus-visible {
+		outline-color: var(--coral);
 	}
-	.eyebrow {
-		color: var(--ink);
-		margin-bottom: 19px;
+	.contact-main {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: end;
+		gap: 35px;
+		padding: 26px 0 37px;
 	}
 	h2 {
-		font-size: clamp(29px, 3.4vw, 43px);
-		font-weight: 950;
-		line-height: 1.03;
-		letter-spacing: -1.8px;
+		font-size: clamp(40px, 5.2vw, 66px);
+		font-weight: 650;
+		line-height: 1.04;
+		letter-spacing: -3px;
 	}
-	.contact-copy {
-		font-size: 13px;
-		margin-top: 20px;
+	h2 span {
+		color: var(--coral);
+	}
+	.contact-copy p {
+		font-size: 15px;
 		line-height: 1.8;
+		color: #c4cddb;
 	}
-	.email-link {
-		font: 700 11px var(--mono);
-		text-transform: none;
-		gap: 16px;
+	.email-address {
+		display: inline-flex;
+		align-items: center;
+		gap: 25px;
+		margin-top: 20px;
+		font-size: 16px;
+		text-decoration: none;
+		padding-bottom: 7px;
+		border-bottom: 1px solid #8090a4;
+	}
+	.email-address:hover {
+		color: var(--coral);
+	}
+	.contact-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		border-top: 1px solid #435269;
+		padding-top: 27px;
+	}
+	.contact-links {
+		display: flex;
+		gap: 15px;
+		flex-wrap: wrap;
+	}
+	.contact-links :global(.button) {
+		border-color: #0d1827;
+		box-shadow: 0 4px 0 #0d1827;
+		gap: 12px;
+	}
+	.back-top {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		min-height: 40px;
+		font: 10px var(--mono);
+		text-decoration: none;
 		white-space: nowrap;
 	}
 	.footer-bottom {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 25px;
-		padding-block: 33px;
+		gap: 24px;
+		padding-block: 30px;
+		font-size: 10px;
+		color: var(--muted);
 	}
-	.footer-brand {
-		font-size: 20px;
-		font-weight: 950;
-		letter-spacing: -0.7px;
+	.footer-bottom a {
+		display: inline-flex;
+		align-items: center;
+		gap: 11px;
+		font-size: 12px;
+		font-weight: 650;
 		text-decoration: none;
+		color: var(--ink);
 	}
-	.footer-brand span {
-		color: #a33632;
+	.footer-bottom strong {
+		font-size: 24px;
+		color: var(--blue);
+		letter-spacing: -1.5px;
 	}
 	.footer-bottom p {
 		font: 10px var(--mono);
-		color: var(--muted);
-		margin-top: 10px;
-		line-height: 1.8;
 	}
-	.footer-links {
-		display: flex;
-		gap: 11px;
-	}
-	.footer-links a {
-		font: 700 10px var(--mono);
-		padding: 10px 12px;
-		gap: 9px;
-		min-height: 40px;
-	}
-	.github {
-		background: var(--olive);
-	}
-	.linkedin {
-		background: var(--teal);
-	}
-	.email {
-		background: var(--mustard);
-	}
-	@media (max-width: 800px) {
-		.contact-panel {
+	@media (max-width: 850px) {
+		.contact-section {
+			padding: 30px;
+		}
+		.contact-main {
+			grid-template-columns: 1fr;
+			gap: 25px;
+		}
+		.contact-bottom {
 			flex-direction: column;
 			align-items: flex-start;
-			gap: 26px;
+			gap: 24px;
 		}
 		.footer-bottom {
-			flex-direction: column;
-			align-items: flex-start;
+			flex-wrap: wrap;
+			gap: 17px;
 		}
 	}
-	@media (max-width: 500px) {
-		.contact-panel {
-			padding-block: 40px;
+	@media (max-width: 600px) {
+		.contact-section {
+			padding: 25px 21px;
 		}
-		.email-link {
-			font-size: 10px;
+		h2 {
+			font-size: 47px;
+			letter-spacing: -2px;
+		}
+		.contact-copy p {
+			font-size: 13px;
+		}
+		.email-address {
+			font-size: 13px;
+			gap: 10px;
+		}
+		.contact-links {
+			gap: 13px;
+		}
+		.contact-links :global(.button) {
+			font-size: 12px;
 			padding-inline: 13px;
+			gap: 10px;
+		}
+		.footer-bottom p {
+			order: 3;
+			width: 100%;
+			font-size: 9px;
 		}
 	}
 </style>

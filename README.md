@@ -1,6 +1,6 @@
 # Siabul Hassan — Portfolio
 
-A responsive, single-page portfolio built with SvelteKit 3, TypeScript, Tailwind CSS 4, and Bun. The visual direction follows the supplied retro references: cream and teal panels, bold typography, black borders, and offset shadows.
+A responsive, single-page portfolio built with SvelteKit 3, TypeScript, Neo Svelte, plain CSS, and Bun. An original engineering-workbench visual direction combines warm ivory, ink blue, coral accents, tactile buttons, and a floating composition of Taskora, a code card, and a monogram.
 
 ## Local development
 
@@ -31,7 +31,7 @@ The static adapter prerenders the complete page into `build/`. No backend, envir
 
 Contact links use GitHub, the supplied LinkedIn profile (without its tracking query), and `mailto:siabulhassan@gmail.com`.
 
-The page includes a keyboard skip link, visible focus outlines, a mobile navigation disclosure with Escape support, semantic headings, descriptive image alternatives, and reduced-motion support. All project links are visible without hover.
+The hero composition has a pause/resume control and respects the system reduced-motion preference. The page includes a keyboard skip link, visible focus outlines, a mobile navigation disclosure with Escape support, semantic headings, descriptive image alternatives, and reduced-motion support. All project links are visible without hover.
 
 No deployment domain has been assumed. If the site is later published, use the chosen public domain for absolute social-preview metadata URLs and a canonical URL.
 

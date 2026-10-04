@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
 	import { profile } from '#lib/data/portfolio.js';
 	let open = $state(false);
-	let menuButton: HTMLButtonElement;
+	let menuButton = $state<HTMLButtonElement>();
 	const links = [
 		{ href: '#top', label: 'Home' },
 		{ href: '#work', label: 'Work' },
@@ -24,10 +25,17 @@
 			class="brand"
 			href="#top"
 			aria-label="Siabul Hassan, back to top"
-			onclick={() => (open = false)}>SIABUL<span>_</span></a
+			onclick={() => (open = false)}
+			><span class="brand-symbol">sh.</span><span class="brand-name"
+				>Siabul Hassan<span class="brand-role">Software Developer</span></span
+			></a
 		>
-		<button
-			bind:this={menuButton}
+		<NeoButton
+			elevation={0}
+			hover={0}
+			active={0}
+			scale={false}
+			bind:ref={menuButton}
 			class="menu-toggle"
 			aria-expanded={open}
 			aria-controls="main-navigation"
@@ -37,13 +45,20 @@
 			<span>{open ? 'Close' : 'Menu'}</span><span class="menu-lines" class:expanded={open}
 				><i></i><i></i></span
 			>
-		</button>
+		</NeoButton>
 		<nav class:open aria-label="Main navigation" id="main-navigation">
 			{#each links as link (link.href)}<a href={link.href} onclick={() => (open = false)}
 					>{link.label}</a
 				>{/each}
-			<a class="nav-mail" href={'mailto:' + profile.email} aria-label="Email Siabul Hassan"
-				><Icon name="mail" size={17} /></a
+			<NeoButton
+				class="nav-mail"
+				elevation={0}
+				hover={0}
+				active={0}
+				scale={false}
+				href={'mailto:' + profile.email}
+				aria-label="Email Siabul Hassan"
+				><span>Email me</span><Icon name="arrow" size={17} /></NeoButton
 			>
 		</nav>
 	</div>
@@ -55,88 +70,129 @@
 		top: 0;
 		z-index: 20;
 		background: var(--paper);
-		border-bottom: 2px solid var(--ink);
+		border-bottom: 1px solid var(--line);
 	}
 	.nav-inner {
-		min-height: 72px;
+		min-height: 86px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 24px;
 	}
 	.brand {
-		font-size: 20px;
-		font-weight: 950;
-		letter-spacing: -0.8px;
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
 		text-decoration: none;
 	}
-	.brand span {
-		color: #a33632;
+	.brand-symbol {
+		display: grid;
+		place-items: center;
+		height: 42px;
+		width: 42px;
+		border: 1.5px solid var(--ink);
+		background: var(--blue);
+		color: white;
+		border-radius: 6px;
+		box-shadow: 2px 2px 0 var(--ink);
+		font-weight: 850;
+		letter-spacing: -1.5px;
+		font-size: 24px;
+		padding-bottom: 4px;
+	}
+	.brand-name {
+		font-size: 14px;
+		font-weight: 750;
+		letter-spacing: -0.3px;
+	}
+	.brand-role {
+		display: block;
+		font: 9px var(--mono);
+		font-weight: 400;
+		letter-spacing: 0.4px;
+		color: var(--muted);
+		margin-top: 5px;
 	}
 	nav {
 		display: flex;
 		align-items: center;
-		gap: 9px;
+		gap: 28px;
 	}
-	nav a,
-	.menu-toggle {
-		border: 2px solid var(--ink);
-		border-radius: 3px;
-		background: var(--stone);
-		color: white;
-		box-shadow: 3px 3px 0 var(--ink);
-		padding: 10px 12px;
-		font: 700 10px var(--mono);
-		text-transform: uppercase;
+	nav a {
+		font-size: 13px;
+		font-weight: 600;
 		text-decoration: none;
-		min-height: 37px;
-		transition:
-			transform 0.15s,
-			box-shadow 0.15s;
-	}
-	nav a:first-child {
-		background: var(--olive);
-		color: var(--ink);
-	}
-	nav a:nth-child(4) {
-		background: var(--mauve);
-		color: var(--ink);
+		padding-block: 10px;
+		min-height: 40px;
+		display: inline-flex;
+		align-items: center;
 	}
 	nav a:hover {
-		transform: translate(2px, 2px);
-		box-shadow: 1px 1px 0 var(--ink);
+		color: var(--blue);
 	}
-	nav .nav-mail {
-		padding: 8px 10px;
+	nav a:first-child {
+		display: none;
 	}
-	.menu-toggle {
+	nav :global(.nav-mail) {
+		display: inline-flex;
+		gap: 20px;
+		align-items: center;
+		border: 1.5px solid var(--ink);
+		border-radius: 5px;
+		padding: 10px 15px;
+		background: var(--ink);
+		color: white;
+		box-shadow: 0 3px 0 #8b9cb2;
+	}
+	nav :global(.nav-mail):hover {
+		background: #294565;
+	}
+	:global(.menu-toggle) {
 		display: none;
 	}
 	@media (max-width: 700px) {
 		.nav-inner {
-			min-height: 66px;
+			min-height: 74px;
 		}
-		.menu-toggle {
+		.brand-symbol {
+			width: 36px;
+			height: 36px;
+			font-size: 21px;
+		}
+		.brand-name {
+			font-size: 12px;
+		}
+		.brand-role {
+			font-size: 8px;
+		}
+		:global(.menu-toggle) {
 			display: inline-flex;
 			align-items: center;
-			gap: 12px;
-			min-height: 40px;
+			gap: 10px;
+			min-height: 44px;
+			border: 1.5px solid var(--ink);
+			border-radius: 5px;
+			padding: 9px 12px;
+			background: var(--white);
+			box-shadow: 0 3px 0 var(--ink);
+			font-size: 11px;
+			font-weight: 700;
 		}
 		.menu-lines {
 			display: grid;
 			gap: 5px;
-			width: 16px;
+			width: 15px;
 		}
 		.menu-lines i {
-			height: 2px;
+			height: 1.5px;
 			background: currentColor;
 			transition: transform 0.2s;
 		}
 		.expanded i:first-child {
-			transform: translateY(3.5px) rotate(45deg);
+			transform: translateY(3.25px) rotate(45deg);
 		}
 		.expanded i:last-child {
-			transform: translateY(-3.5px) rotate(-45deg);
+			transform: translateY(-3.25px) rotate(-45deg);
 		}
 		nav {
 			display: none;
@@ -145,21 +201,26 @@
 			left: 0;
 			right: 0;
 			background: var(--paper);
-			padding: 18px 24px 24px;
-			border-bottom: 2px solid var(--ink);
+			padding: 12px 22px 24px;
+			border-bottom: 1.5px solid var(--ink);
+			box-shadow: 0 7px 0 #182a4110;
 		}
 		nav.open {
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
-			gap: 12px;
+			gap: 2px;
 		}
-		nav a {
-			padding: 14px;
-			min-height: 44px;
+		nav a,
+		nav a:first-child {
+			display: flex;
+			padding: 13px 4px;
+			min-height: 46px;
 		}
-		nav .nav-mail {
+		nav :global(.nav-mail) {
+			justify-content: space-between;
 			padding: 12px;
+			margin-top: 8px;
 		}
 	}
 </style>

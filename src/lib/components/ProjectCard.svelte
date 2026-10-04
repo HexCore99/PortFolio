@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { reveal } from '#lib/reveal.js';
+	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import type { Project } from '#lib/data/portfolio.js';
 	import ProjectVisual from './ProjectVisual.svelte';
 	import Icon from './Icon.svelte';
@@ -6,6 +8,7 @@
 </script>
 
 <article
+	use:reveal
 	class="project-card"
 	class:featured={project.featured}
 	class:compact
@@ -23,18 +26,26 @@
 			{#each project.tags as tag (tag)}<li>{tag}</li>{/each}
 		</ul>
 		<div class="project-links">
-			<a
+			<NeoButton
+				elevation={0}
+				hover={0}
+				active={0}
+				scale={false}
+				class="button button-secondary"
 				href={project.repositoryUrl}
-				target="_blank"
-				rel="noreferrer"
+				{...{ target: '_blank', rel: 'noreferrer' }}
 				aria-label={`${project.title} GitHub source (opens in a new tab)`}
-				><Icon name="github" size={16} /> GitHub source <Icon name="arrow" size={15} /></a
-			>{#if project.releaseUrl}<a
+				><Icon name="github" size={16} /> GitHub source <Icon name="arrow" size={15} /></NeoButton
+			>{#if project.releaseUrl}<NeoButton
+					elevation={0}
+					hover={0}
+					active={0}
+					scale={false}
+					class="button button-primary"
 					href={project.releaseUrl}
-					target="_blank"
-					rel="noreferrer"
+					{...{ target: '_blank', rel: 'noreferrer' }}
 					aria-label={`${project.title} latest release (opens in a new tab)`}
-					>Latest release <Icon name="arrow" size={15} /></a
+					>Latest release <Icon name="arrow" size={15} /></NeoButton
 				>{/if}
 		</div>
 	</div>
@@ -44,174 +55,165 @@
 	.project-card {
 		display: flex;
 		flex-direction: column;
-		border: 2px solid var(--ink);
-		border-radius: 4px;
+		border: 1.5px solid var(--ink);
+		border-radius: 10px;
 		overflow: hidden;
 		background: var(--white);
-		box-shadow: 5px 5px 0 var(--ink);
-		transition:
-			transform 0.15s,
-			box-shadow 0.15s;
-	}
-	.project-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 5px 7px 0 var(--ink);
+		box-shadow: 0 4px 0 #182a4125;
 	}
 	.project-copy {
-		padding: 27px;
+		padding: 29px;
 		display: flex;
 		flex-direction: column;
 		flex: 1;
 	}
 	.project-category {
-		font: 700 9px var(--mono);
+		font: 600 10px var(--mono);
 		text-transform: uppercase;
-		letter-spacing: 1.2px;
+		letter-spacing: 1px;
 		color: var(--muted);
-		margin-bottom: 12px;
+		margin-bottom: 14px;
 		display: flex;
 		align-items: center;
-		gap: 7px;
+		gap: 8px;
 	}
 	h3 {
-		font-size: 27px;
-		font-weight: 900;
-		text-transform: uppercase;
-		line-height: 1.08;
+		font-size: 28px;
+		font-weight: 750;
+		line-height: 1.13;
 		letter-spacing: -1px;
 		margin-bottom: 14px;
 	}
 	.summary {
-		font-size: 14px;
-		font-weight: 700;
-		line-height: 1.6;
-		color: var(--ink);
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.65;
 	}
 	.detail {
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 1.8;
-		color: #4f4439;
-		margin-top: 11px;
+		color: var(--muted);
+		margin-top: 12px;
 	}
 	.tags {
 		list-style: none;
 		padding: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 6px;
-		margin: 21px 0 24px;
+		gap: 7px;
+		margin: 24px 0 26px;
 	}
 	.tags li {
-		background: var(--paper);
-		border: 1px solid var(--ink);
-		padding: 4px 7px;
-		border-radius: 2px;
-		color: var(--ink);
-		font: 9px var(--mono);
+		background: #eef1ef;
+		border: 1px solid #d2d9d9;
+		padding: 5px 8px;
+		border-radius: 4px;
+		color: #435164;
+		font: 10px var(--mono);
 		line-height: 1.4;
 	}
 	.project-links {
 		margin-top: auto;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 12px;
-		padding-top: 18px;
-		border-top: 1px solid #9b8d72;
+		gap: 13px;
+		padding-top: 20px;
+		border-top: 1px solid var(--line);
 	}
-	.project-links a {
-		display: inline-flex;
-		align-items: center;
-		gap: 7px;
-		text-decoration: none;
-		text-transform: uppercase;
-		font: 700 9px var(--mono);
-		min-height: 37px;
-		background: var(--stone);
-		color: white;
-		border: 2px solid var(--ink);
-		box-shadow: 2px 2px 0 var(--ink);
-		border-radius: 3px;
-		padding: 8px 10px;
-		transition:
-			transform 0.15s,
-			box-shadow 0.15s;
+	.project-links :global(.button) {
+		min-height: 45px;
+		font-size: 12px;
+		gap: 9px;
+		padding: 11px 14px;
+		border-width: 1.5px;
+		box-shadow: none;
+		border-radius: 5px;
 	}
-	.project-links a + a {
-		background: var(--mustard);
-		color: var(--ink);
+	.project-links :global(.button):hover {
+		box-shadow: 0 3px 0 #182a4130;
 	}
-	.project-links a:hover {
-		transform: translate(1px, 1px);
-		box-shadow: 1px 1px 0 var(--ink);
+	.project-links :global(.button):active {
+		box-shadow: none;
 	}
 	.featured {
 		display: grid;
 		grid-template-columns: 0.85fr 1.15fr;
-		background: var(--mauve);
+		background: var(--ink);
+		color: var(--cream);
 	}
 	.featured .visual-wrap {
 		grid-column: 2;
 		grid-row: 1;
 		display: grid;
-		border-left: 2px solid var(--ink);
+		border-left: 1.5px solid var(--ink);
 	}
 	.featured .project-copy {
 		grid-column: 1;
 		grid-row: 1;
-		padding: 33px;
+		padding: 35px;
 	}
 	.featured h3 {
-		font-size: 43px;
+		font-size: 45px;
 		letter-spacing: -1.8px;
 	}
-	.featured .project-category,
+	.featured .project-category {
+		color: var(--coral);
+	}
 	.featured .detail {
-		color: #171015;
+		color: #c0ccdb;
 	}
 	.featured .project-links {
-		border-top-color: #743b56;
+		border-top-color: #536075;
+	}
+	.featured :global(a:focus-visible) {
+		outline-color: var(--coral);
+	}
+	.featured .tags li {
+		background: #2c3f56;
+		border-color: #4e6075;
+		color: #e0e7f1;
 	}
 	.featured-dot {
-		width: 7px;
-		height: 7px;
-		background: var(--mustard);
-		border: 1px solid var(--ink);
+		width: 6px;
+		height: 6px;
+		background: var(--coral);
 	}
 	.compact {
 		display: grid;
-		grid-template-columns: 135px 1fr;
+		grid-template-columns: 145px 1fr;
 	}
 	.compact .visual-wrap {
 		display: grid;
-		border-right: 2px solid var(--ink);
+		border-right: 1px solid #c3ccd2;
 	}
 	.compact .project-copy {
-		padding: 22px;
+		padding: 24px;
 	}
 	.compact h3 {
-		font-size: 20px;
+		font-size: 21px;
 	}
 	.compact .summary {
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 400;
+		color: var(--muted);
 	}
 	.compact .tags {
-		margin: 15px 0;
+		margin: 18px 0;
 	}
 	.compact .project-category {
-		font-size: 8px;
+		font-size: 9px;
 	}
-	@media (max-width: 1000px) {
+	@media (max-width: 1100px) {
 		.featured .project-copy {
-			padding: 25px;
+			padding: 28px;
 		}
 		.compact {
 			grid-template-columns: 1fr;
 		}
 		.compact .visual-wrap {
-			max-height: 175px;
+			max-height: 190px;
 			border-right: 0;
-			border-bottom: 2px solid var(--ink);
+			border-bottom: 1px solid #c3ccd2;
 		}
 	}
 	@media (max-width: 800px) {
@@ -221,13 +223,13 @@
 		}
 		.featured .visual-wrap {
 			border-left: 0;
-			border-bottom: 2px solid var(--ink);
+			border-bottom: 1.5px solid var(--ink);
 		}
 		.project-copy {
 			padding: 23px;
 		}
 		.featured .project-copy {
-			padding: 26px;
+			padding: 28px;
 		}
 		.featured h3 {
 			font-size: 36px;
@@ -236,6 +238,13 @@
 	@media (max-width: 600px) {
 		.compact .visual-wrap {
 			max-height: none;
+		}
+		.project-copy {
+			padding: 23px;
+		}
+		.project-links :global(.button) {
+			min-height: 46px;
+			font-size: 12px;
 		}
 	}
 </style>

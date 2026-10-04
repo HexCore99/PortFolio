@@ -1,0 +1,22 @@
+{
+	"taskora": {
+		"width": 1400,
+		"height": 834,
+		"bytes": 38138
+	},
+	"wholocks": {
+		"width": 1113,
+		"height": 701,
+		"bytes": 33620
+	},
+	"movies": {
+		"width": 1400,
+		"height": 696,
+		"bytes": 85534
+	},
+	"tracker": {
+		"width": 798,
+		"height": 1093,
+		"bytes": 40402
+	}
+}

@@ -9,3 +9,6 @@ Copied from Siabul Hassan’s public GitHub repositories on 2026-10-04. Images a
 - `clock.png`: [7 Segment Digital Clock](https://github.com/HexCore99/digital_clock/blob/main/Pictures/clock1.png)
 
 QuickJudge and GearGuard use original CSS workflow illustrations, not simulated application screenshots. Project descriptions and technologies were checked against repository READMEs. Release buttons use the verified `releases/latest` routes for Taskora and WhoLocks.
+
+
+

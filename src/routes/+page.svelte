@@ -14,7 +14,7 @@
 <svelte:head>
 	<title>Siabul Hassan — Full-Stack Developer</title>
 	<meta name="description" content={description} />
-	<meta name="theme-color" content="#fcf1c6" />
+	<meta name="theme-color" content="#f6f3ea" />
 	<meta property="og:title" content="Siabul Hassan — Full-Stack Developer" />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
@@ -43,7 +43,7 @@
 	<Hero />
 	<section id="about" class="section about-section container" aria-labelledby="about-title">
 		<div class="about-grid">
-			<SectionHeading id="about-title" number="01" title="A practical approach" />
+			<SectionHeading id="about-title" title="A practical approach" />
 			<div class="about-copy">
 				<p>
 					I’m Siabul, a software developer who enjoys working across the stack—from the interface
@@ -62,7 +62,6 @@
 		<div class="container">
 			<SectionHeading
 				id="work-title"
-				number="02"
 				title="Selected work"
 				description="A closer look at the things I build. Practical problems, explored across different stacks."
 			/>
@@ -79,7 +78,6 @@
 	<section class="section additional-section container" aria-labelledby="additional-title">
 		<SectionHeading
 			id="additional-title"
-			number="03"
 			title="Additional builds"
 			description="Smaller projects. The same curiosity for how things work."
 		/>
@@ -114,8 +112,8 @@
 		color: var(--muted);
 	}
 	.work-section {
-		background: var(--paper);
-		border-block: 3px solid var(--line);
+		background: #edf0ea;
+		border-block: 1px solid var(--line);
 	}
 	.project-grid {
 		display: grid;

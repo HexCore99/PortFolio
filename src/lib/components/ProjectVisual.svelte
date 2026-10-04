@@ -63,31 +63,31 @@
 
 <style>
 	.project-visual {
-		background: #d6bca0;
+		background: #dfe6e8;
 		padding: 30px;
 		aspect-ratio: 1.85;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
-		border-bottom: 2px solid var(--ink);
+		border-bottom: 1px solid #bcc8d4;
 	}
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
-		border-radius: 2px;
-		filter: drop-shadow(3px 3px 0 #111111);
+		border-radius: 4px;
+		filter: drop-shadow(0 5px 8px #182a4120);
 	}
 	.featured {
 		padding: 35px;
 		aspect-ratio: auto;
 		min-height: 360px;
 		border-bottom: 0;
-		background: #d4b197;
+		background: #d7e2f4;
 	}
 	.dark {
-		background: #929359;
+		background: #dce2df;
 	}
 	.compact {
 		padding: 14px;
@@ -109,7 +109,7 @@
 		gap: 8px;
 		font: 9px var(--mono);
 		letter-spacing: 1px;
-		color: #302b25;
+		color: #34465f;
 	}
 	.visual-label > span:last-child,
 	.visual-bottom > span:last-child {
@@ -141,7 +141,7 @@
 	.judge-node > span:last-child,
 	.verdict > span:last-child {
 		font: 10px var(--mono);
-		color: #302b25;
+		color: #34465f;
 	}
 	.brackets {
 		display: grid;
@@ -226,7 +226,7 @@
 	}
 	.gear-route {
 		font: 11px var(--mono);
-		color: #302b25;
+		color: #34465f;
 	}
 	.gear-route > span {
 		display: flex;
