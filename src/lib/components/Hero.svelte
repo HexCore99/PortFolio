@@ -13,8 +13,9 @@
 				Across <span>web</span>, <span>desktop</span>, and <span>systems</span>.
 			</p>
 			<p class="hero-description">
-				I'm Siabul Hassan, a CS student at United International University. I like to make desktop
-				apps, full-stack platforms and the odd C++ experiment, then ship them with release builds.
+				I'm <span class="name-highlight">Siabul Hassan</span>, a CS student at United International
+				University. I like to make desktop apps, full-stack platforms and the odd C++ experiment,
+				then ship them with release builds.
 			</p>
 			<div class="hero-actions">
 				<NeoButton
@@ -84,11 +85,65 @@
 		margin-top: 25px;
 		max-width: 485px;
 	}
+	.name-highlight {
+		position: relative;
+		z-index: 0;
+		display: inline-block;
+		padding-inline: 0.24em;
+		color: var(--ink);
+		font-weight: 750;
+		white-space: nowrap;
+	}
+	.name-highlight::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		inset: 16% -1px 3%;
+		border-radius: 6px 3px 7px 3px;
+		background: #f4d5bf;
+		transform: rotate(-1.5deg);
+	}
+	.name-highlight::after {
+		content: '✦';
+		position: absolute;
+		top: -0.78em;
+		right: -0.45em;
+		color: var(--blue);
+		font-size: 0.65em;
+		line-height: 1;
+		transform: rotate(12deg);
+	}
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 16px;
 		margin-top: 32px;
+	}
+	.hero-actions :global(.button.neo-button) {
+		min-height: 52px;
+		padding: 12px 17px;
+		border: 2px solid var(--ink);
+		border-radius: 6px;
+		box-shadow: 4px 4px 0 var(--ink);
+		font: 700 13px/1.4 var(--mono);
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease,
+			background 0.15s ease;
+	}
+	.hero-actions :global(.button.neo-button:hover) {
+		transform: translate(-1px, -1px);
+		box-shadow: 5px 5px 0 var(--ink);
+	}
+	.hero-actions :global(.button.neo-button:active) {
+		transform: translate(3px, 3px);
+		box-shadow: 1px 1px 0 var(--ink);
+	}
+	.hero-actions :global(.button-primary.neo-button:hover) {
+		background: #fbb18d;
+	}
+	.hero-actions :global(.button-secondary.neo-button:hover) {
+		background: #fff;
 	}
 	.button-arrow {
 		border-left: 1px solid #182a4150;
@@ -102,7 +157,7 @@
 			font-size: 62px;
 			letter-spacing: -3.8px;
 		}
-		.hero-actions :global(.button) {
+		.hero-actions :global(.button.neo-button) {
 			padding-inline: 16px;
 			font-size: 13px;
 			gap: 13px;
@@ -147,8 +202,14 @@
 			gap: 14px;
 			margin-top: 27px;
 		}
-		.hero-actions :global(.button) {
+		.hero-actions :global(.button.neo-button) {
 			flex: 1 1 auto;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.hero-actions :global(.button.neo-button:hover),
+		.hero-actions :global(.button.neo-button:active) {
+			transform: none;
 		}
 	}
 </style>
