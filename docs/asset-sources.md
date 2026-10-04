@@ -10,5 +10,6 @@ Copied from Siabul Hassan’s public GitHub repositories on 2026-10-04. Images a
 
 QuickJudge and GearGuard use original CSS workflow illustrations, not simulated application screenshots. Project descriptions and technologies were checked against repository READMEs. Release buttons use the verified `releases/latest` routes for Taskora and WhoLocks.
 
+## Skill icons
 
-
+Technology SVGs in `static/skills/` are from Simple Icons 16.34.0 (https://github.com/simple-icons/simple-icons), with the upstream license included in that directory. Java, Zustand, CLI, and file-tool symbols are local illustrative SVGs. Icons are bundled locally and their adjacent text supplies the accessible name.

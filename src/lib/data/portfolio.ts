@@ -140,18 +140,43 @@ export const projects: Project[] = [
 
 export const skills = [
 	{
-		title: 'Web & interfaces',
-		number: '01',
-		items: ['React', 'Next.js', 'Tailwind CSS', 'Zustand', 'Redux Toolkit']
+		title: 'Languages',
+		items: ['Rust', 'Python', 'C++', 'Java', 'JavaScript']
 	},
 	{
-		title: 'Desktop & systems',
-		number: '02',
-		items: ['Rust', 'Tauri', 'C++', 'raylib', 'Windows tooling']
+		title: 'Frontend',
+		items: [
+			'SvelteKit',
+			'React',
+			'Next.js',
+			'Vite',
+			'Tailwind CSS',
+			'Redux Toolkit',
+			'Zustand',
+			'React Router'
+		]
 	},
 	{
-		title: 'Backend & data',
-		number: '03',
-		items: ['Express', 'SQLite', 'MySQL', 'Python', 'Flask', 'TensorFlow/Keras']
+		title: 'Backend and data',
+		items: ['Express', 'Flask', 'MySQL', 'SQLite', 'JWT']
+	},
+	{
+		title: 'Machine learning',
+		items: ['TensorFlow/Keras']
+	},
+	{
+		title: 'Desktop and tools',
+		items: ['Tauri 2', 'raylib', 'CLI tools', 'Windows file-system tooling']
 	}
 ];
+
+export const education = {
+	institution: 'United International University',
+	degree: 'B.Sc. in Computer Science & Engineering',
+	dates: 'Aug 2023 — Expected 2028',
+	trimester: '9th Trimester',
+	description:
+		'Currently pursuing my undergraduate degree with a focus on software engineering and modern web development.',
+	coursework: ['Data Structures & Algorithms', 'OOP', 'Database Systems', 'Microprocessors'],
+	scholarship: 'Multiple 25% and 50% scholarships awarded during my studies.'
+};

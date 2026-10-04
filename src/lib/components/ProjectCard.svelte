@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { reveal } from '#lib/reveal.js';
+	import { NeoPill } from '@dvcol/neo-svelte/pill';
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import type { Project } from '#lib/data/portfolio.js';
 	import ProjectVisual from './ProjectVisual.svelte';
@@ -23,7 +24,9 @@
 		<p class="summary">{project.summary}</p>
 		{#if project.detail}<p class="detail">{project.detail}</p>{/if}
 		<ul class="tags" aria-label={`${project.title} technologies`}>
-			{#each project.tags as tag (tag)}<li>{tag}</li>{/each}
+			{#each project.tags as tag (tag)}<li>
+					<NeoPill class="project-chip" elevation={0} rounded={false}>{tag}</NeoPill>
+				</li>{/each}
 		</ul>
 		<div class="project-links">
 			<NeoButton
@@ -103,15 +106,6 @@
 		gap: 7px;
 		margin: 24px 0 26px;
 	}
-	.tags li {
-		background: #eef1ef;
-		border: 1px solid #d2d9d9;
-		padding: 5px 8px;
-		border-radius: 4px;
-		color: #435164;
-		font: 10px var(--mono);
-		line-height: 1.4;
-	}
 	.project-links {
 		margin-top: auto;
 		display: flex;
@@ -168,23 +162,19 @@
 	.featured :global(a:focus-visible) {
 		outline-color: var(--coral);
 	}
-	.featured .tags li {
-		background: #2c3f56;
-		border-color: #4e6075;
-		color: #e0e7f1;
-	}
-	.featured-dot {
+	.featured .featured-dot {
 		width: 6px;
 		height: 6px;
 		background: var(--coral);
 	}
 	.compact {
 		display: grid;
-		grid-template-columns: 145px 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 	.compact .visual-wrap {
 		display: grid;
-		border-right: 1px solid #c3ccd2;
+		height: 230px;
+		border-bottom: 1px solid #c3ccd2;
 	}
 	.compact .project-copy {
 		padding: 24px;
@@ -245,6 +235,41 @@
 		.project-links :global(.button) {
 			min-height: 46px;
 			font-size: 12px;
+		}
+	}
+
+	.project-card {
+		transition:
+			translate 0.3s ease,
+			box-shadow 0.3s ease,
+			border-color 0.3s ease;
+	}
+	.visual-wrap :global(img),
+	.visual-wrap :global(svg) {
+		transition: scale 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+	@media (hover: hover) and (pointer: fine) {
+		.project-card:hover {
+			translate: 0 -7px;
+			box-shadow: 0 14px 26px #182a411c;
+			border-color: var(--blue);
+		}
+		.project-card:hover .visual-wrap :global(img),
+		.project-card:hover .visual-wrap :global(svg) {
+			scale: 1.035;
+		}
+	}
+	.project-card:focus-within {
+		box-shadow: 0 8px 20px #182a4120;
+		border-color: var(--blue);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.project-card:hover {
+			translate: none;
+		}
+		.project-card:hover .visual-wrap :global(img),
+		.project-card:hover .visual-wrap :global(svg) {
+			scale: 1;
 		}
 	}
 </style>

@@ -53,13 +53,12 @@
 					></NeoButton
 				>
 			</div>
-			<a href="#top" class="back-top">Back to top <Icon name="arrow" size={19} /></a>
 		</div>
 	</div>
-	<div class="footer-bottom container">
-		<a href="#top" aria-label="Siabul Hassan, back to top"><strong>sh.</strong> Siabul Hassan</a>
-		<p>Built with SvelteKit.</p>
-		<span>© {new Date().getFullYear()}</span>
+	<div class="footer-signature container">
+		<span class="signature-name">Siabul Hassan<span aria-hidden="true">.</span></span><span
+			class="signature-copyright">© {new Date().getFullYear()}</span
+		>
 	</div>
 </footer>
 
@@ -130,41 +129,6 @@
 		box-shadow: 0 4px 0 #0d1827;
 		gap: 12px;
 	}
-	.back-top {
-		display: inline-flex;
-		align-items: center;
-		gap: 10px;
-		min-height: 40px;
-		font: 10px var(--mono);
-		text-decoration: none;
-		white-space: nowrap;
-	}
-	.footer-bottom {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 24px;
-		padding-block: 30px;
-		font-size: 10px;
-		color: var(--muted);
-	}
-	.footer-bottom a {
-		display: inline-flex;
-		align-items: center;
-		gap: 11px;
-		font-size: 12px;
-		font-weight: 650;
-		text-decoration: none;
-		color: var(--ink);
-	}
-	.footer-bottom strong {
-		font-size: 24px;
-		color: var(--blue);
-		letter-spacing: -1.5px;
-	}
-	.footer-bottom p {
-		font: 10px var(--mono);
-	}
 	@media (max-width: 850px) {
 		.contact-section {
 			padding: 30px;
@@ -177,10 +141,6 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 24px;
-		}
-		.footer-bottom {
-			flex-wrap: wrap;
-			gap: 17px;
 		}
 	}
 	@media (max-width: 600px) {
@@ -206,10 +166,36 @@
 			padding-inline: 13px;
 			gap: 10px;
 		}
-		.footer-bottom p {
-			order: 3;
-			width: 100%;
-			font-size: 9px;
+	}
+
+	.footer-signature {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 20px;
+		padding-block: 38px 30px;
+	}
+	.signature-name {
+		font-size: clamp(30px, 5vw, 66px);
+		font-weight: 750;
+		letter-spacing: -0.055em;
+		line-height: 1.1;
+		color: var(--ink);
+	}
+	.signature-name > span {
+		color: var(--blue);
+	}
+	.signature-copyright {
+		font-size: 13px;
+		color: var(--muted);
+		white-space: nowrap;
+	}
+	@media (max-width: 400px) {
+		.footer-signature {
+			gap: 10px;
+		}
+		.signature-copyright {
+			font-size: 11px;
 		}
 	}
 </style>

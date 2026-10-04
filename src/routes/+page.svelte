@@ -3,6 +3,7 @@
 	import Hero from '#lib/components/Hero.svelte';
 	import SectionHeading from '#lib/components/SectionHeading.svelte';
 	import SkillsBlock from '#lib/components/SkillsBlock.svelte';
+	import EducationBlock from '#lib/components/EducationBlock.svelte';
 	import ProjectCard from '#lib/components/ProjectCard.svelte';
 	import Footer from '#lib/components/Footer.svelte';
 	import { projects } from '#lib/data/portfolio.js';
@@ -41,46 +42,28 @@
 <Navigation />
 <main id="main" tabindex="-1">
 	<Hero />
-	<section id="about" class="section about-section container" aria-labelledby="about-title">
-		<div class="about-grid">
-			<SectionHeading id="about-title" title="A practical approach" />
-			<div class="about-copy">
-				<p>
-					I’m Siabul, a software developer who enjoys working across the stack—from the interface
-					you interact with to the systems that make it work.
-				</p>
-				<p>
-					My projects span local-first productivity tools, Windows utilities, full-stack platforms,
-					and machine learning. The common thread: a concrete problem, a considered interface, and
-					an implementation I can build on.
-				</p>
-			</div>
-		</div>
-		<SkillsBlock />
-	</section>
 	<section id="work" class="work-section section" aria-labelledby="work-title">
-		<div class="container">
-			<SectionHeading
-				id="work-title"
-				title="Selected work"
-				description="A closer look at the things I build. Practical problems, explored across different stacks."
-			/>
-			{#each projects.filter((project) => project.featured) as project (project.id)}<ProjectCard
-					{project}
-				/>{/each}
-			<div class="project-grid">
-				{#each projects.filter((project) => !project.featured && !project.additional) as project (project.id)}<ProjectCard
+		<div class="container work-layout">
+			<div class="section-rail"><SectionHeading id="work-title" title="Selected work" /></div>
+			<div class="work-content">
+				{#each projects.filter((project) => project.featured) as project (project.id)}<ProjectCard
 						{project}
 					/>{/each}
+				<div class="project-grid">
+					{#each projects.filter((project) => !project.featured && !project.additional) as project (project.id)}<ProjectCard
+							{project}
+						/>{/each}
+				</div>
 			</div>
 		</div>
 	</section>
-	<section class="section additional-section container" aria-labelledby="additional-title">
-		<SectionHeading
-			id="additional-title"
-			title="Additional builds"
-			description="Smaller projects. The same curiosity for how things work."
-		/>
+	<section
+		class="section additional-section container work-layout"
+		aria-labelledby="additional-title"
+	>
+		<div class="section-rail">
+			<SectionHeading id="additional-title" title="Additional builds" />
+		</div>
 		<div class="additional-grid">
 			{#each projects.filter((project) => project.additional) as project (project.id)}<ProjectCard
 					{project}
@@ -88,28 +71,78 @@
 				/>{/each}
 		</div>
 	</section>
+	<section id="about" class="section container work-layout" aria-labelledby="about-title">
+		<div class="section-rail"><SectionHeading id="about-title" title="Skills" /></div>
+		<div class="skills-content"><SkillsBlock /></div>
+	</section>
+	<section
+		class="section container work-layout education-section"
+		aria-labelledby="education-title"
+	>
+		<div class="section-rail"><SectionHeading id="education-title" title="Education" /></div>
+		<EducationBlock />
+	</section>
 </main>
 <Footer />
 
 <style>
-	.about-grid {
+	.education-section {
+		padding-top: 0;
+	}
+	.skills-content {
+		min-width: 0;
+	}
+	.work-layout {
 		display: grid;
-		grid-template-columns: 1fr 1.1fr;
-		gap: 65px;
+		grid-template-columns: 200px minmax(0, 1fr);
+		gap: 40px;
+		align-items: start;
 	}
-	.about-copy {
-		padding-top: 4px;
+	.work-content,
+	.additional-grid {
+		min-width: 0;
 	}
-	.about-copy p:first-child {
-		font-size: 19px;
-		line-height: 1.7;
-		letter-spacing: -0.4px;
+	.section-rail {
+		position: sticky;
+		top: 120px;
+		align-self: start;
 	}
-	.about-copy p + p {
-		margin-top: 18px;
-		font-size: 14px;
-		line-height: 1.9;
-		color: var(--muted);
+	.section-rail :global(.section-heading) {
+		margin: 0;
+	}
+	.section-rail :global(h2) {
+		max-width: 180px;
+		font-size: 34px;
+		line-height: 1.12;
+		letter-spacing: -1.3px;
+	}
+	@media (max-width: 1100px) {
+		.work-layout {
+			grid-template-columns: 150px minmax(0, 1fr);
+			gap: 28px;
+		}
+		.section-rail :global(h2) {
+			font-size: 29px;
+			max-width: 150px;
+		}
+	}
+	@media (max-width: 950px) {
+		.work-layout {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+		.section-rail {
+			position: static;
+		}
+		.section-rail :global(h2) {
+			max-width: none;
+			font-size: 36px;
+		}
+	}
+	@media (max-width: 600px) {
+		.section-rail :global(h2) {
+			font-size: 32px;
+		}
 	}
 	.work-section {
 		background: #edf0ea;
@@ -127,22 +160,12 @@
 		gap: 25px;
 	}
 	@media (max-width: 800px) {
-		.about-grid {
-			grid-template-columns: 1fr;
-			gap: 0;
-		}
-		.about-copy {
-			max-width: 650px;
-		}
 	}
 	@media (max-width: 600px) {
 		.project-grid,
 		.additional-grid {
 			grid-template-columns: 1fr;
 			gap: 22px;
-		}
-		.about-copy p:first-child {
-			font-size: 18px;
 		}
 	}
 </style>

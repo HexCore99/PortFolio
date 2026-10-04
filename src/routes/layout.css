@@ -309,3 +309,24 @@ body .skill-block:nth-child(3) .skill-chip.neo-pill {
 		transform: none;
 	}
 }
+
+/* Neo pills are technology labels, not interactive controls. */
+body .project-chip.neo-pill {
+	padding: 8px 12px;
+	border: 1px solid #c6cfd8;
+	border-radius: 7px;
+	background: #edf0f3;
+	color: #334962;
+	font: 500 12px var(--neo-font-family);
+	box-shadow:
+		3px 3px 5px #182a4115,
+		-2px -2px 4px #ffffffa0;
+}
+body .featured .project-chip.neo-pill {
+	background: #293e57;
+	border-color: #425a74;
+	color: #ecf2fc;
+	box-shadow:
+		3px 3px 5px #0f1e3180,
+		-2px -2px 4px #3b526c70;
+}

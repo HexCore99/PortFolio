@@ -1,55 +1,77 @@
 <script lang="ts">
 	import { NeoPill } from '@dvcol/neo-svelte/pill';
 	import { skills } from '#lib/data/portfolio.js';
+	import SkillIcon from './SkillIcon.svelte';
 </script>
 
-<div class="skills-grid">
-	{#each skills as skill (skill.title)}
-		<div class="skill-block">
-			<h3>{skill.title}</h3>
-			<ul>
-				{#each skill.items as item (item)}<li>
-						<NeoPill class="skill-chip" elevation={0} rounded={false}>{item}</NeoPill>
-					</li>{/each}
+<div class="skills-tree">
+	{#each skills as group (group.title)}
+		<div class="skill-row">
+			<h3>{group.title}</h3>
+			<ul aria-label={group.title}>
+				{#each group.items as skill (skill)}
+					<li>
+						<NeoPill class="tree-chip" elevation={0} rounded={false}
+							><SkillIcon name={skill} />{skill}</NeoPill
+						>
+					</li>
+				{/each}
 			</ul>
 		</div>
 	{/each}
 </div>
 
 <style>
-	.skills-grid {
+	.skill-row {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		border-top: 1px solid var(--line);
-		margin-top: 40px;
-		padding-top: 28px;
-		gap: 32px;
+		grid-template-columns: 170px minmax(0, 1fr);
+		gap: 20px;
+		padding: 22px 0;
+		border-bottom: 1px solid var(--line);
+		align-items: start;
+	}
+	.skill-row:first-child {
+		padding-top: 0;
 	}
 	h3 {
 		font-size: 16px;
-		font-weight: 700;
-		text-transform: none;
-		margin: 10px 0 15px;
+		line-height: 1.5;
+		margin: 8px 0;
 		letter-spacing: -0.3px;
 	}
 	ul {
 		display: flex;
-		gap: 10px;
 		flex-wrap: wrap;
+		gap: 10px;
 		list-style: none;
 		padding: 0;
-		color: var(--muted);
-		font: 12px var(--mono);
-		line-height: 1.8;
+		margin: 0;
+		min-width: 0;
 	}
-	@media (max-width: 600px) {
-		.skills-grid {
+	.skills-tree :global(.tree-chip) {
+		display: inline-flex;
+		gap: 8px;
+		align-items: center;
+		padding: 8px 11px;
+		border: 1px solid #c5cdd7;
+		border-radius: 7px;
+		background: #edf0f3;
+		color: var(--ink);
+		font-size: 13px;
+		line-height: 1.5;
+		box-shadow: 2px 3px 0 #182a4112;
+		max-width: 100%;
+	}
+	li {
+		max-width: 100%;
+	}
+	@media (max-width: 650px) {
+		.skill-row {
 			grid-template-columns: 1fr;
-			gap: 25px;
+			gap: 12px;
 		}
-		.skill-block {
-			position: relative;
-			padding-left: 0;
+		h3 {
+			margin: 0;
 		}
 	}
 </style>

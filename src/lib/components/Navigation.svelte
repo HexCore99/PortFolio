@@ -26,9 +26,7 @@
 			href="#top"
 			aria-label="Siabul Hassan, back to top"
 			onclick={() => (open = false)}
-			><span class="brand-symbol">sh.</span><span class="brand-name"
-				>Siabul Hassan<span class="brand-role">Software Developer</span></span
-			></a
+			><span class="brand-symbol">sh.</span><span class="brand-name">Siabul Hassan</span></a
 		>
 		<NeoButton
 			elevation={0}
@@ -47,8 +45,10 @@
 			>
 		</NeoButton>
 		<nav class:open aria-label="Main navigation" id="main-navigation">
-			{#each links as link (link.href)}<a href={link.href} onclick={() => (open = false)}
-					>{link.label}</a
+			{#each links as link (link.href)}<a
+					class="nav-tab"
+					href={link.href}
+					onclick={() => (open = false)}>{link.label}</a
 				>{/each}
 			<NeoButton
 				class="nav-mail"
@@ -105,18 +105,10 @@
 		font-weight: 750;
 		letter-spacing: -0.3px;
 	}
-	.brand-role {
-		display: block;
-		font: 9px var(--mono);
-		font-weight: 400;
-		letter-spacing: 0.4px;
-		color: var(--muted);
-		margin-top: 5px;
-	}
 	nav {
 		display: flex;
 		align-items: center;
-		gap: 28px;
+		gap: 10px;
 	}
 	nav a {
 		font-size: 13px;
@@ -161,9 +153,6 @@
 		}
 		.brand-name {
 			font-size: 12px;
-		}
-		.brand-role {
-			font-size: 8px;
 		}
 		:global(.menu-toggle) {
 			display: inline-flex;
@@ -221,6 +210,46 @@
 			justify-content: space-between;
 			padding: 12px;
 			margin-top: 8px;
+		}
+	}
+
+	nav .nav-tab {
+		min-height: 44px;
+		padding: 10px 17px;
+		border: 1px solid #c5cdd7;
+		border-radius: 8px;
+		background: #eceef0;
+		box-shadow:
+			3px 3px 5px #182a4117,
+			-3px -3px 5px #ffffffb0;
+		transition:
+			background 0.2s,
+			box-shadow 0.2s,
+			translate 0.2s;
+	}
+	nav .nav-tab:hover,
+	nav .nav-tab:focus-visible {
+		background: #dce6f6;
+		translate: 0 -2px;
+		box-shadow: 3px 5px 7px #182a4120;
+	}
+	nav .nav-tab:active {
+		translate: 0 1px;
+		box-shadow: inset 2px 2px 4px #182a4120;
+	}
+	@media (max-width: 700px) {
+		nav.open {
+			gap: 10px;
+		}
+		nav .nav-tab,
+		nav .nav-tab:first-child {
+			padding: 12px 16px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		nav .nav-tab:hover,
+		nav .nav-tab:active {
+			translate: none;
 		}
 	}
 </style>
