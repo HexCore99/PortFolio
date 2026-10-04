@@ -80,9 +80,8 @@
 		<div class="section-rail"><SectionHeading id="experience-title" title="Experience" /></div>
 		<ExperienceBlock />
 	</section>
-	<section id="about" class="section container work-layout" aria-labelledby="about-title">
-		<div class="section-rail"><SectionHeading id="about-title" title="Skills" /></div>
-		<div class="skills-content"><SkillsBlock /></div>
+	<section id="about" class="section container skills-section" aria-labelledby="about-title">
+		<SkillsBlock />
 	</section>
 	<section
 		class="section container work-layout education-section"
@@ -99,9 +98,6 @@
 	.experience-section,
 	#about {
 		padding-top: 0;
-	}
-	.skills-content {
-		min-width: 0;
 	}
 	.work-layout {
 		display: grid;
@@ -156,7 +152,7 @@
 		}
 	}
 	.work-section {
-		background: #edf0ea;
+		background: var(--work-background);
 		border-block: 1px solid var(--line);
 	}
 	.project-grid {

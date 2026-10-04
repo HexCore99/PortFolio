@@ -1,7 +1,7 @@
 :root {
 	font-family: -apple-system, ui-sans-serif, system-ui, 'Segoe UI', ui-rounded, sans-serif;
-	color: #182a41;
-	background: #f6f3ea;
+	color: var(--ink);
+	background: var(--paper);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -20,7 +20,73 @@
 	--olive: #a4a52b;
 	--line: #cdd3d8;
 	--line-strong: #182a41;
+	--brand-background: #e9b58d;
+	--on-bright: #182a41;
+	--surface-control: #fffdf7;
+	--surface-muted: #edf0ea;
+	--work-background: #edf0ea;
+	--chip-neutral: #edf0f3;
+	--contact-background: #f4d5bf;
+	--contact-muted: #455266;
+	--nav-tab-background: #dce5ee;
+	--nav-tab-current: #f4d5bf;
+	--nav-tab-border: #31465e;
+	--nav-tab-ink: #243a53;
+	--nav-mail-background: #182a41;
+	--nav-mail-hover: #294565;
+	--nav-mail-ink: #fff;
+	--control-shadow: #8b9cb2;
+	--current-shadow: #a78b76;
+	--feature-panel: #182a41;
+	--feature-text: #f6f3ea;
+	--feature-muted: #c0ccdb;
+	--feature-line: #536075;
+	--skill-chip-ink: #182a41;
+	--tag-background: #eaf0f1;
+	--tag-ink: #42586a;
+	--primary-hover: #fbb18d;
 	--mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+html[data-theme='dark'] {
+	--paper: #101826;
+	--cream: #101826;
+	--white: #172235;
+	--ink: #edf3fb;
+	--muted: #a9b7ca;
+	--blue: #8aa9ff;
+	--blue-soft: #2a3d5c;
+	--teal: #77b8ba;
+	--mauve: #d293b1;
+	--coral: #f2a17d;
+	--mustard: #f2a17d;
+	--stone: #5e6b7d;
+	--olive: #c6c86a;
+	--line: #344258;
+	--line-strong: #dbe7f7;
+	--brand-background: #d99574;
+	--surface-control: #1b293e;
+	--surface-muted: #141f2f;
+	--work-background: #141f2f;
+	--chip-neutral: #223047;
+	--contact-background: #49352f;
+	--contact-muted: #d5c5be;
+	--nav-tab-background: #22324a;
+	--nav-tab-current: #533b34;
+	--nav-tab-border: #8092aa;
+	--nav-tab-ink: #e4edf8;
+	--nav-mail-background: #e3ebf5;
+	--nav-mail-hover: #fff;
+	--nav-mail-ink: #172235;
+	--control-shadow: #52647c;
+	--current-shadow: #8f6657;
+	--feature-panel: #1d3150;
+	--feature-text: #f2f6fb;
+	--feature-muted: #b9c7da;
+	--feature-line: #536986;
+	--skill-chip-ink: #f2f6fb;
+	--tag-background: #26364d;
+	--tag-ink: #c7d5e6;
+	--primary-hover: #ffb18c;
 }
 * {
 	box-sizing: border-box;
@@ -34,6 +100,7 @@ body {
 	padding-top: calc(87px + env(safe-area-inset-top, 0px));
 	margin: 0;
 	min-width: 0;
+	background: var(--paper);
 }
 h1,
 h2,
@@ -110,6 +177,7 @@ section[id] {
 }
 .button-primary {
 	background: var(--mustard);
+	color: var(--on-bright);
 }
 .button-secondary {
 	background: var(--white);
@@ -124,7 +192,7 @@ section[id] {
 	left: 20px;
 	padding: 12px 18px;
 	background: var(--ink);
-	color: white;
+	color: var(--paper);
 	z-index: 100;
 	transform: translateY(-160%);
 }
@@ -220,7 +288,9 @@ body .button.neo-button {
 }
 body .button.neo-button.button-primary {
 	background: var(--coral);
+	color: var(--on-bright);
 }
+
 body .button.neo-button .neo-content {
 	gap: 12px;
 }

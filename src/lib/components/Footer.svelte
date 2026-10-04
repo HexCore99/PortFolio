@@ -77,7 +77,7 @@
 <style>
 	.footer-band {
 		margin-top: 44px;
-		background: #edf0ea;
+		background: var(--surface-muted);
 		border-top: 1px solid var(--line);
 	}
 	footer {
@@ -85,7 +85,7 @@
 		padding-top: 15px;
 	}
 	.contact-section {
-		background: #f4d5bf;
+		background: var(--contact-background);
 		color: var(--ink);
 		border: 1.5px solid var(--ink);
 		border-radius: 12px;
@@ -113,7 +113,7 @@
 	.contact-copy p {
 		font-size: 15px;
 		line-height: 1.8;
-		color: #455266;
+		color: var(--contact-muted);
 	}
 	.email-address {
 		display: inline-flex;
@@ -210,7 +210,8 @@
 		padding-bottom: 3px;
 		border: 1.5px solid var(--ink);
 		border-radius: 11px 4px 11px 4px;
-		background: #e9b58d;
+		background: var(--brand-background);
+		color: var(--on-bright);
 		box-shadow: 2px 2px 0 var(--ink);
 		font-size: 21px;
 		font-weight: 850;
