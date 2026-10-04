@@ -8,7 +8,7 @@
 	<p class="institution">{education.institution}</p>
 	<div class="study-meta">
 		<span>{education.dates}</span>
-		<NeoPill class="trimester" elevation={0} rounded={false}>{education.trimester}</NeoPill>
+		<span>{education.trimester}</span>
 	</div>
 	<p class="description">{education.description}</p>
 	<div class="coursework">
@@ -50,14 +50,6 @@
 		margin-top: 24px;
 		color: var(--muted);
 		font-size: 14px;
-	}
-	.study-meta :global(.trimester) {
-		padding: 7px 12px;
-		border: 1px solid #d5b8a3;
-		border-radius: 6px;
-		background: #fae3d5;
-		color: #623e2c;
-		font-size: 13px;
 	}
 	.description {
 		max-width: 590px;

@@ -141,7 +141,7 @@ export const projects: Project[] = [
 export const skills = [
 	{
 		title: 'Languages',
-		items: ['Rust', 'Python', 'C++', 'Java', 'JavaScript']
+		items: ['C', 'Rust', 'Python', 'C++', 'Java', 'JavaScript']
 	},
 	{
 		title: 'Frontend',
@@ -166,7 +166,7 @@ export const skills = [
 	},
 	{
 		title: 'Desktop and tools',
-		items: ['Tauri 2', 'raylib', 'CLI tools', 'Windows file-system tooling']
+		items: ['Tauri 2', 'raylib', 'SDL3', 'CLI tools', 'Windows file-system tooling']
 	}
 ];
 

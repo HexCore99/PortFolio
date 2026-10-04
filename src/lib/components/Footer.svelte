@@ -55,27 +55,34 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer-signature container">
-		<span class="signature-name">Siabul Hassan<span aria-hidden="true">.</span></span><span
-			class="signature-copyright">© {new Date().getFullYear()}</span
-		>
+	<div class="footer-band">
+		<div class="footer-signature container">
+			<span class="signature-name">Siabul Hassan<span aria-hidden="true">.</span></span><span
+				class="signature-copyright">© {new Date().getFullYear()}</span
+			>
+		</div>
 	</div>
 </footer>
 
 <style>
+	.footer-band {
+		margin-top: 44px;
+		background: #284c4a;
+		border-top: 4px solid #e9b58d;
+	}
 	footer {
 		scroll-margin-top: 105px;
 		padding-top: 15px;
 	}
 	.contact-section {
-		background: var(--ink);
-		color: var(--cream);
+		background: #f4d5bf;
+		color: var(--ink);
 		border: 1.5px solid var(--ink);
 		border-radius: 12px;
 		padding: 36px 44px;
 	}
 	.contact-section a:focus-visible {
-		outline-color: var(--coral);
+		outline-color: var(--blue);
 	}
 	.contact-main {
 		display: grid;
@@ -91,12 +98,12 @@
 		letter-spacing: -3px;
 	}
 	h2 span {
-		color: var(--coral);
+		color: var(--blue);
 	}
 	.contact-copy p {
 		font-size: 15px;
 		line-height: 1.8;
-		color: #c4cddb;
+		color: #455266;
 	}
 	.email-address {
 		display: inline-flex;
@@ -106,17 +113,17 @@
 		font-size: 16px;
 		text-decoration: none;
 		padding-bottom: 7px;
-		border-bottom: 1px solid #8090a4;
+		border-bottom: 1px solid #a88f7e;
 	}
 	.email-address:hover {
-		color: var(--coral);
+		color: var(--blue);
 	}
 	.contact-bottom {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 20px;
-		border-top: 1px solid #435269;
+		border-top: 1px solid #bca18f;
 		padding-top: 27px;
 	}
 	.contact-links {
@@ -170,24 +177,24 @@
 
 	.footer-signature {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		justify-content: space-between;
 		gap: 20px;
-		padding-block: 38px 30px;
+		padding-block: 30px;
 	}
 	.signature-name {
-		font-size: clamp(30px, 5vw, 66px);
+		font-size: clamp(23px, 3vw, 36px);
 		font-weight: 750;
-		letter-spacing: -0.055em;
+		letter-spacing: -0.035em;
 		line-height: 1.1;
-		color: var(--ink);
+		color: #f6f3ea;
 	}
 	.signature-name > span {
-		color: var(--blue);
+		color: #efb58c;
 	}
 	.signature-copyright {
 		font-size: 13px;
-		color: var(--muted);
+		color: #d0dedb;
 		white-space: nowrap;
 	}
 	@media (max-width: 400px) {

@@ -91,9 +91,9 @@
 		height: 42px;
 		width: 42px;
 		border: 1.5px solid var(--ink);
-		background: var(--blue);
-		color: white;
-		border-radius: 6px;
+		background: #e9b58d;
+		color: var(--ink);
+		border-radius: 12px 4px 12px 4px;
 		box-shadow: 2px 2px 0 var(--ink);
 		font-weight: 850;
 		letter-spacing: -1.5px;
@@ -216,12 +216,11 @@
 	nav .nav-tab {
 		min-height: 44px;
 		padding: 10px 17px;
-		border: 1px solid #c5cdd7;
-		border-radius: 8px;
-		background: #eceef0;
-		box-shadow:
-			3px 3px 5px #182a4117,
-			-3px -3px 5px #ffffffb0;
+		border: 1.5px solid #31465e;
+		border-radius: 5px;
+		background: #dce5ee;
+		color: #243a53;
+		box-shadow: 0 3px 0 #8b9cb2;
 		transition:
 			background 0.2s,
 			box-shadow 0.2s,
@@ -231,11 +230,11 @@
 	nav .nav-tab:focus-visible {
 		background: #dce6f6;
 		translate: 0 -2px;
-		box-shadow: 3px 5px 7px #182a4120;
+		box-shadow: 0 5px 0 #8b9cb2;
 	}
 	nav .nav-tab:active {
 		translate: 0 1px;
-		box-shadow: inset 2px 2px 4px #182a4120;
+		box-shadow: 0 1px 0 #8b9cb2;
 	}
 	@media (max-width: 700px) {
 		nav.open {

@@ -45,7 +45,13 @@
 		stroke-linejoin="round"
 		aria-hidden="true"
 	>
-		{#if name === 'Java'}
+		{#if name === 'C'}
+			<path d="m12 2 9 5v10l-9 5-9-5V7Z" /><path d="M16 8a6 6 0 1 0 0 8" />
+		{:else if name === 'SDL3'}
+			<rect x="2" y="3" width="20" height="15" rx="2" /><path
+				d="M8 22h8m-4-4v4M6 8h5m-5 4h3m6-4 3 3-3 3"
+			/>
+		{:else if name === 'Java'}
 			<path
 				d="M5 10h12v6a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5Zm12 1h2a3 3 0 0 1 0 6h-2M9 7c-3-3 3-3 0-6m5 6c-3-3 3-3 0-6"
 			/>

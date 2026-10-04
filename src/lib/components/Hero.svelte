@@ -2,7 +2,6 @@
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
 	import BuildBench from './BuildBench.svelte';
-	import { profile } from '#lib/data/portfolio.js';
 </script>
 
 <section class="hero" aria-labelledby="hero-title">
@@ -13,8 +12,9 @@
 				Across <span>web</span>, <span>desktop</span>, and <span>systems</span>.
 			</p>
 			<p class="hero-description">
-				Local-first tools. Full-stack platforms. C++ experiments.<br class="desktop-break" /> I build
-				practical solutions—and the pieces that make them work.
+				I'm Siabul Hassan, a CS student at United International University. I make local-first
+				desktop apps, full-stack platforms and the odd C++ experiment, then ship them with release
+				builds.
 			</p>
 			<div class="hero-actions">
 				<NeoButton
@@ -39,28 +39,11 @@
 		</div>
 		<BuildBench />
 	</div>
-	<div class="hero-bottom container">
-		<div class="social-links">
-			<a
-				href={profile.github}
-				target="_blank"
-				rel="noreferrer"
-				aria-label="Siabul Hassan on GitHub (opens in a new tab)"
-				><Icon name="github" size={18} /> GitHub <Icon name="arrow" size={14} /></a
-			><a
-				href={profile.linkedin}
-				target="_blank"
-				rel="noreferrer"
-				aria-label="Siabul Hassan on LinkedIn (opens in a new tab)"
-				><Icon name="linkedin" size={18} /> LinkedIn <Icon name="arrow" size={14} /></a
-			>
-		</div>
-	</div>
 </section>
 
 <style>
 	.hero {
-		padding-top: 83px;
+		padding-block: 83px 65px;
 	}
 	.hero-grid {
 		display: grid;
@@ -107,31 +90,6 @@
 		border-left: 1px solid #182a4150;
 		padding-left: 16px;
 	}
-	.hero-bottom {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: 20px;
-		border-block: 1px solid var(--line);
-		padding-block: 20px;
-		margin-top: 65px;
-	}
-	.social-links {
-		display: flex;
-		gap: 23px;
-	}
-	.social-links a {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		font-size: 12px;
-		font-weight: 600;
-		text-decoration: none;
-		min-height: 34px;
-	}
-	.hero-bottom a:hover {
-		color: var(--blue);
-	}
 	@media (max-width: 1050px) {
 		.hero-grid {
 			gap: 30px;
@@ -145,13 +103,10 @@
 			font-size: 13px;
 			gap: 13px;
 		}
-		.desktop-break {
-			display: none;
-		}
 	}
 	@media (max-width: 850px) {
 		.hero {
-			padding-top: 60px;
+			padding-block: 60px 48px;
 		}
 		.hero-grid {
 			grid-template-columns: 1fr;
@@ -166,13 +121,10 @@
 		.hero-description {
 			max-width: 540px;
 		}
-		.hero-bottom {
-			margin-top: 42px;
-		}
 	}
 	@media (max-width: 600px) {
 		.hero {
-			padding-top: 43px;
+			padding-block: 43px 40px;
 		}
 		h1 {
 			font-size: clamp(44px, 10.8vw, 66px);
@@ -193,11 +145,6 @@
 		}
 		.hero-actions :global(.button) {
 			flex: 1 1 auto;
-		}
-		.hero-bottom {
-			align-items: flex-start;
-			flex-direction: column;
-			gap: 16px;
 		}
 	}
 </style>

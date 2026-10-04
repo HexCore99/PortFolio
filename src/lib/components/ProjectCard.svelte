@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { reveal } from '#lib/reveal.js';
-	import { NeoPill } from '@dvcol/neo-svelte/pill';
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import type { Project } from '#lib/data/portfolio.js';
 	import ProjectVisual from './ProjectVisual.svelte';
@@ -24,9 +23,9 @@
 		<p class="summary">{project.summary}</p>
 		{#if project.detail}<p class="detail">{project.detail}</p>{/if}
 		<ul class="tags" aria-label={`${project.title} technologies`}>
-			{#each project.tags as tag (tag)}<li>
-					<NeoPill class="project-chip" elevation={0} rounded={false}>{tag}</NeoPill>
-				</li>{/each}
+			{#each project.tags as tag (tag)}
+				<li class="project-tag">{tag}</li>
+			{/each}
 		</ul>
 		<div class="project-links">
 			<NeoButton
@@ -105,6 +104,17 @@
 		flex-wrap: wrap;
 		gap: 7px;
 		margin: 24px 0 26px;
+	}
+	.project-tag {
+		padding: 4px 8px;
+		border-radius: 2px;
+		background: #eaf0f1;
+		color: #42586a;
+		font: 500 11px/1.5 var(--mono);
+	}
+	.featured .project-tag {
+		background: #293e53;
+		color: #dce6f1;
 	}
 	.project-links {
 		margin-top: auto;
