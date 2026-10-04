@@ -5,6 +5,7 @@
 	import SkillsBlock from '#lib/components/SkillsBlock.svelte';
 	import EducationBlock from '#lib/components/EducationBlock.svelte';
 	import ProjectCard from '#lib/components/ProjectCard.svelte';
+	import ExperienceBlock from '#lib/components/ExperienceBlock.svelte';
 	import Footer from '#lib/components/Footer.svelte';
 	import { projects } from '#lib/data/portfolio.js';
 	import { asset } from '$app/paths';
@@ -71,6 +72,14 @@
 				/>{/each}
 		</div>
 	</section>
+	<section
+		id="experience"
+		class="section container work-layout experience-section"
+		aria-labelledby="experience-title"
+	>
+		<div class="section-rail"><SectionHeading id="experience-title" title="Experience" /></div>
+		<ExperienceBlock />
+	</section>
 	<section id="about" class="section container work-layout" aria-labelledby="about-title">
 		<div class="section-rail"><SectionHeading id="about-title" title="Skills" /></div>
 		<div class="skills-content"><SkillsBlock /></div>
@@ -87,6 +96,7 @@
 
 <style>
 	.education-section,
+	.experience-section,
 	#about {
 		padding-top: 0;
 	}

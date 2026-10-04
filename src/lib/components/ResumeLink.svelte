@@ -3,7 +3,11 @@
 	import Icon from './Icon.svelte';
 </script>
 
-<a class="resume-link" href={asset('siabul-hassan-resume.pdf')} download="Siabul-Hassan-Resume.pdf">
+<a
+	class="resume-link"
+	href={asset('resume/Siabul-Hassan-Resume.pdf')}
+	download="Siabul-Hassan-Resume.pdf"
+>
 	<Icon name="down" size={17} />
 	<span>Download résumé</span>
 	<span class="file-type">PDF</span>

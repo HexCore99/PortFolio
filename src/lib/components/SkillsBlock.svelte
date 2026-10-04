@@ -75,6 +75,32 @@
 		font: 600 12px/1.5 var(--mono);
 		overflow-wrap: anywhere;
 		max-width: 100%;
+		transition:
+			transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+			box-shadow 180ms ease,
+			filter 180ms ease;
+	}
+	.tree-chip :global(img),
+	.tree-chip :global(svg) {
+		transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+	@media (hover: hover) {
+		.tree-chip:hover {
+			transform: translate(-2px, -4px) rotate(-1deg);
+			box-shadow: 6px 7px 0 var(--ink);
+			filter: saturate(1.08) brightness(1.03);
+		}
+		.tree-chip:nth-child(even):hover {
+			transform: translate(2px, -4px) rotate(1deg);
+		}
+		.tree-chip:hover :global(img),
+		.tree-chip:hover :global(svg) {
+			transform: scale(1.16) rotate(-8deg);
+		}
+		.tree-chip:nth-child(even):hover :global(img),
+		.tree-chip:nth-child(even):hover :global(svg) {
+			transform: scale(1.16) rotate(8deg);
+		}
 	}
 	li {
 		max-width: 100%;
@@ -84,8 +110,23 @@
 			grid-template-columns: 1fr;
 			gap: 12px;
 		}
-		h3 {
+			h3 {
 			margin: 0;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.tree-chip,
+		.tree-chip :global(img),
+		.tree-chip :global(svg) {
+			transition: none;
+		}
+		.tree-chip:hover,
+		.tree-chip:nth-child(even):hover,
+		.tree-chip:hover :global(img),
+		.tree-chip:hover :global(svg),
+		.tree-chip:nth-child(even):hover :global(img),
+		.tree-chip:nth-child(even):hover :global(svg) {
+			transform: none;
 		}
 	}
 </style>

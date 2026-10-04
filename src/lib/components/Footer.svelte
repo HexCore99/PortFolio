@@ -59,9 +59,17 @@
 	</div>
 	<div class="footer-band">
 		<div class="footer-signature container">
-			<span class="signature-name">Siabul Hassan<span aria-hidden="true">.</span></span><span
-				class="signature-copyright">© {new Date().getFullYear()}</span
-			>
+			<a class="footer-identity" href="#top" aria-label="Siabul Hassan, back to top">
+				<span class="footer-mark" aria-hidden="true">sh.</span>
+				<span class="identity-copy">
+					<strong>Siabul Hassan</strong>
+					<small>Building useful software.</small>
+				</span>
+			</a>
+			<div class="footer-meta">
+				<span class="signature-copyright">© {new Date().getFullYear()}</span>
+				<a class="back-to-top" href="#top"><span aria-hidden="true">↑</span> Back to top</a>
+			</div>
 		</div>
 	</div>
 </footer>
@@ -69,8 +77,8 @@
 <style>
 	.footer-band {
 		margin-top: 44px;
-		background: #284c4a;
-		border-top: 4px solid #e9b58d;
+		background: #edf0ea;
+		border-top: 1px solid var(--line);
 	}
 	footer {
 		scroll-margin-top: 15px;
@@ -184,30 +192,94 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 20px;
-		padding-block: 30px;
+		gap: 32px;
+		padding-block: 25px;
 	}
-	.signature-name {
-		font-size: clamp(23px, 3vw, 36px);
-		font-weight: 750;
-		letter-spacing: -0.035em;
-		line-height: 1.1;
-		color: #f6f3ea;
+	.footer-identity {
+		display: inline-flex;
+		align-items: center;
+		gap: 13px;
+		color: var(--ink);
+		text-decoration: none;
 	}
-	.signature-name > span {
-		color: #efb58c;
+	.footer-mark {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		padding-bottom: 3px;
+		border: 1.5px solid var(--ink);
+		border-radius: 11px 4px 11px 4px;
+		background: #e9b58d;
+		box-shadow: 2px 2px 0 var(--ink);
+		font-size: 21px;
+		font-weight: 850;
+		letter-spacing: -1.5px;
+	}
+	.identity-copy {
+		display: grid;
+		gap: 3px;
+	}
+	.identity-copy strong {
+		font-size: 15px;
+		letter-spacing: -0.2px;
+	}
+	.identity-copy small {
+		color: var(--muted);
+		font-size: 11px;
+	}
+	.footer-meta {
+		display: flex;
+		align-items: center;
+		gap: 24px;
 	}
 	.signature-copyright {
-		font-size: 13px;
-		color: #d0dedb;
+		font-size: 12px;
+		color: var(--muted);
 		white-space: nowrap;
 	}
-	@media (max-width: 400px) {
+	.back-to-top {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		min-height: 40px;
+		padding: 9px 12px;
+		border: 1px solid var(--line-strong);
+		border-radius: 4px;
+		background: var(--paper);
+		box-shadow: 2px 2px 0 var(--ink);
+		font-size: 12px;
+		font-weight: 650;
+		text-decoration: none;
+		transition:
+			transform 0.15s,
+			box-shadow 0.15s;
+	}
+	.back-to-top:hover {
+		transform: translate(1px, 1px);
+		box-shadow: 1px 1px 0 var(--ink);
+	}
+	.back-to-top span {
+		color: var(--blue);
+		font-size: 16px;
+	}
+	@media (max-width: 520px) {
 		.footer-signature {
-			gap: 10px;
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 20px;
+		}
+		.footer-meta {
+			width: 100%;
+			justify-content: space-between;
 		}
 		.signature-copyright {
 			font-size: 11px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.back-to-top:hover {
+			transform: none;
 		}
 	}
 </style>

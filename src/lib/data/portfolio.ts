@@ -27,7 +27,7 @@ export const projects: Project[] = [
 		id: 'taskora',
 		title: 'Taskora',
 		category: 'Desktop · Productivity',
-		summary: 'Local-first Kanban for focused personal work.',
+		summary: ' Kanban for focused personal work.',
 		detail:
 			'Projects, boards, and task details in one desktop workspace. Built with a Rust backend and SQLite storage to keep your work on your own device.',
 		tags: ['Tauri 2', 'Rust', 'React', 'SQLite', 'Zustand'],
@@ -169,6 +169,21 @@ export const skills = [
 		items: ['Tauri 2', 'raylib', 'SDL3', 'CLI tools', 'Windows file-system tooling']
 	}
 ];
+
+export const experience = {
+	role: 'Undergraduate Assistant (UGA)',
+	institution: 'United International University',
+	department: 'Department of Computer Science & Engineering',
+	course: 'Data Structures and Algorithms I & II',
+	description:
+		'Support students with data structures, algorithms, C/C++ programming, debugging, and problem solving through regular consultations. Have mentored approximately 80 students across two trimesters.',
+	responsibilities: [
+		'Assist students with data structures, algorithms and their implementation.',
+		'Help diagnose and debug C/C++ programming problems.',
+		'Conduct consultations and provide academic support alongside faculty.'
+	],
+	tags: ['C', 'C++', 'Data Structures', 'Algorithms']
+};
 
 export const education = {
 	institution: 'United International University',

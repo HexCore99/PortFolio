@@ -13,9 +13,8 @@
 				Across <span>web</span>, <span>desktop</span>, and <span>systems</span>.
 			</p>
 			<p class="hero-description">
-				I'm Siabul Hassan, a CS student at United International University. I make local-first
-				desktop apps, full-stack platforms and the odd C++ experiment, then ship them with release
-				builds.
+				I'm Siabul Hassan, a CS student at United International University. I like to make desktop
+				apps, full-stack platforms and the odd C++ experiment, then ship them with release builds.
 			</p>
 			<div class="hero-actions">
 				<NeoButton
