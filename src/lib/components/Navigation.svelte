@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 	import { profile } from '#lib/data/portfolio.js';
 	let open = $state(false);
 	let activeSection = $state('#top');
@@ -92,6 +93,7 @@
 				aria-label="Email Siabul Hassan"
 				><span>Email me</span><Icon name="arrow" size={17} /></NeoButton
 			>
+			<ThemeToggle />
 		</nav>
 	</div>
 </header>
@@ -126,8 +128,8 @@
 		height: 42px;
 		width: 42px;
 		border: 1.5px solid var(--ink);
-		background: #e9b58d;
-		color: var(--ink);
+		background: var(--brand-background);
+		color: var(--on-bright);
 		border-radius: 12px 4px 12px 4px;
 		box-shadow: 2px 2px 0 var(--ink);
 		font-weight: 850;
@@ -167,12 +169,12 @@
 		border: 1.5px solid var(--ink);
 		border-radius: 5px;
 		padding: 10px 15px;
-		background: var(--ink);
-		color: white;
-		box-shadow: 0 3px 0 #8b9cb2;
+		background: var(--nav-mail-background);
+		color: var(--nav-mail-ink);
+		box-shadow: 0 3px 0 var(--control-shadow);
 	}
 	nav :global(.nav-mail):hover {
-		background: #294565;
+		background: var(--nav-mail-hover);
 	}
 	:global(.menu-toggle) {
 		display: none;
@@ -253,11 +255,11 @@
 	nav .nav-tab {
 		min-height: 44px;
 		padding: 10px 17px;
-		border: 1.5px solid #31465e;
+		border: 1.5px solid var(--nav-tab-border);
 		border-radius: 5px;
-		background: #dce5ee;
-		color: #243a53;
-		box-shadow: 0 3px 0 #8b9cb2;
+		background: var(--nav-tab-background);
+		color: var(--nav-tab-ink);
+		box-shadow: 0 3px 0 var(--control-shadow);
 		transition:
 			background 0.2s,
 			box-shadow 0.2s,
@@ -265,17 +267,17 @@
 	}
 	nav .nav-tab:hover,
 	nav .nav-tab:focus-visible {
-		background: #dce6f6;
+		background: var(--blue-soft);
 		translate: 0 -2px;
-		box-shadow: 0 5px 0 #8b9cb2;
+		box-shadow: 0 5px 0 var(--control-shadow);
 	}
 	nav .nav-tab:active {
 		translate: 0 1px;
-		box-shadow: 0 1px 0 #8b9cb2;
+		box-shadow: 0 1px 0 var(--control-shadow);
 	}
 	nav .nav-tab[aria-current='location'] {
-		background: #f4d5bf;
-		box-shadow: 0 3px 0 #a78b76;
+		background: var(--nav-tab-current);
+		box-shadow: 0 3px 0 var(--current-shadow);
 	}
 	@media (max-width: 700px) {
 		nav.open {

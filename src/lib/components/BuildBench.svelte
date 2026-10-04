@@ -127,8 +127,8 @@
 		bottom: 4%;
 		width: 56%;
 		padding: 22px;
-		background: var(--ink);
-		color: var(--cream);
+		background: var(--feature-panel);
+		color: var(--feature-text);
 		border-radius: 12px;
 		box-shadow: 6px 8px 0 #182a4120;
 		transform: rotate(4deg);

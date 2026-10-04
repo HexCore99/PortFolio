@@ -29,7 +29,7 @@
 			box-shadow 0.15s ease,
 			background 0.15s ease;
 		width: fit-content;
-		color: var(--ink);
+		color: var(--on-bright);
 		font: 700 13px/1.4 var(--mono);
 		text-decoration: none;
 	}
@@ -43,7 +43,7 @@
 		box-shadow: 1px 1px 0 var(--ink);
 	}
 	.file-type {
-		color: var(--ink);
+		color: var(--on-bright);
 		border-left: 1px solid #182a4140;
 		padding-left: 10px;
 		font: 11px var(--mono);

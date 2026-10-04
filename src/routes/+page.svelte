@@ -156,7 +156,7 @@
 		}
 	}
 	.work-section {
-		background: #edf0ea;
+		background: var(--work-background);
 		border-block: 1px solid var(--line);
 	}
 	.project-grid {

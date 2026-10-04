@@ -86,7 +86,7 @@
 		padding: 9px 13px;
 		border: 0;
 		border-radius: 3px;
-		background: #edf0f3;
+		background: var(--chip-neutral);
 		font-size: 13px;
 		line-height: 1.5;
 		color: var(--muted);

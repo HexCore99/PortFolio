@@ -100,7 +100,7 @@
 		z-index: -1;
 		inset: 16% -1px 3%;
 		border-radius: 6px 3px 7px 3px;
-		background: #f4d5bf;
+		background: var(--contact-background);
 		transform: rotate(-1.5deg);
 	}
 	.name-highlight::after {
@@ -140,13 +140,13 @@
 		box-shadow: 1px 1px 0 var(--ink);
 	}
 	.hero-actions :global(.button-primary.neo-button:hover) {
-		background: #fbb18d;
+		background: var(--primary-hover);
 	}
 	.hero-actions :global(.button-secondary.neo-button:hover) {
-		background: #fff;
+		background: var(--surface-control);
 	}
 	.button-arrow {
-		border-left: 1px solid #182a4150;
+		border-left: 1px solid var(--line);
 		padding-left: 16px;
 	}
 	@media (max-width: 1050px) {

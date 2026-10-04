@@ -112,8 +112,8 @@
 		overflow-wrap: anywhere;
 		padding: 4px 8px;
 		border-radius: 2px;
-		background: #eaf0f1;
-		color: #42586a;
+		background: var(--tag-background);
+		color: var(--tag-ink);
 		font: 500 11px/1.5 var(--mono);
 	}
 	.featured .project-tag {
@@ -148,8 +148,8 @@
 	.featured {
 		display: grid;
 		grid-template-columns: 0.85fr 1.15fr;
-		background: var(--ink);
-		color: var(--cream);
+		background: var(--feature-panel);
+		color: var(--feature-text);
 	}
 	.featured .visual-wrap {
 		grid-column: 2;
@@ -170,10 +170,10 @@
 		color: var(--coral);
 	}
 	.featured .detail {
-		color: #c0ccdb;
+		color: var(--feature-muted);
 	}
 	.featured .project-links {
-		border-top-color: #536075;
+		border-top-color: var(--feature-line);
 	}
 	.featured :global(a:focus-visible) {
 		outline-color: var(--coral);
