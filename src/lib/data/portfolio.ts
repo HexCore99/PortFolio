@@ -141,7 +141,7 @@ export const projects: Project[] = [
 export const skills = [
 	{
 		title: 'Languages',
-		items: ['C', 'Rust', 'Python', 'C++', 'Java', 'JavaScript']
+		items: ['C', 'Rust', 'Python', 'C++', 'Java', 'JavaScript', 'TypeScript']
 	},
 	{
 		title: 'Frontend',

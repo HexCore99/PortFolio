@@ -26,10 +26,12 @@
 	box-sizing: border-box;
 }
 html {
+	scrollbar-gutter: stable;
 	scroll-behavior: smooth;
-	scroll-padding-top: 90px;
+	scroll-padding-top: 110px;
 }
 body {
+	padding-top: calc(87px + env(safe-area-inset-top, 0px));
 	margin: 0;
 	min-width: 0;
 }
@@ -59,21 +61,21 @@ img {
 	color: var(--ink);
 }
 :focus-visible {
-	outline: 3px solid #111;
+	outline: 3px solid var(--blue);
 	outline-offset: 5px;
 }
 main:focus {
 	outline: none;
 }
 section[id] {
-	scroll-margin-top: 15px;
+	scroll-margin-top: 110px;
 }
 .container {
 	width: min(1200px, calc(100% - 96px));
 	margin-inline: auto;
 }
 .section {
-	padding-block: 90px;
+	padding-block: clamp(64px, 7vw, 90px);
 }
 .accent {
 	color: #2854c5;
@@ -155,12 +157,20 @@ section[id] {
 		padding-block: 48px;
 	}
 	html {
-		scroll-padding-top: 83px;
+		scroll-padding-top: 94px;
 	}
 	.button {
 		padding: 12px 16px;
 		font-size: 11px;
 		gap: 16px;
+	}
+}
+@media (max-width: 700px) {
+	body {
+		padding-top: calc(75px + env(safe-area-inset-top, 0px));
+	}
+	section[id] {
+		scroll-margin-top: 94px;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
@@ -197,14 +207,14 @@ section[id] {
 body .button.neo-button {
 	font-family: inherit;
 	margin: 0;
-	padding: 13px 21px;
+	padding: var(--button-padding, 13px 21px);
 	min-height: 48px;
 	border: 1px solid var(--ink);
 	border-radius: 5px;
-	box-shadow: none;
+	box-shadow: var(--button-shadow, none);
 	background: var(--white);
 	color: var(--ink);
-	font-size: 14px;
+	font-size: var(--button-size, 14px);
 	font-weight: 650;
 	text-transform: none;
 }
@@ -225,27 +235,6 @@ body .button.neo-button:active {
 body .button.neo-button:focus-visible {
 	outline: 3px solid var(--blue);
 	outline-offset: 4px;
-}
-body .skill-chip.neo-pill {
-	padding: 9px 13px;
-	border: 1px solid #bcc8d6;
-	border-radius: 6px;
-	background: #e8edf5;
-	color: #233e64;
-	box-shadow: 2px 3px 0 #cbd3dc;
-	font: 500 13px var(--neo-font-family);
-}
-body .skill-block:nth-child(2) .skill-chip.neo-pill {
-	background: #f9e5d9;
-	border-color: #ddc1ad;
-	box-shadow: 2px 3px 0 #e6cdbd;
-	color: #683f29;
-}
-body .skill-block:nth-child(3) .skill-chip.neo-pill {
-	background: #e8eee5;
-	border-color: #c0ccba;
-	box-shadow: 2px 3px 0 #d2dccb;
-	color: #3b5034;
 }
 @media (prefers-reduced-motion: reduce) {
 	body .button.neo-button:hover,
@@ -292,20 +281,9 @@ body .skill-block:nth-child(3) .skill-chip.neo-pill {
 		transform: translateY(0);
 	}
 }
-.skill-chip {
-	transition:
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
-}
-.skill-chip:hover {
-	transform: translateY(-3px);
-}
 @media (prefers-reduced-motion: reduce) {
 	.reveal-pending {
 		opacity: 1;
-		transform: none;
-	}
-	.skill-chip:hover {
 		transform: none;
 	}
 }

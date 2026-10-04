@@ -86,7 +86,8 @@
 <Footer />
 
 <style>
-	.education-section {
+	.education-section,
+	#about {
 		padding-top: 0;
 	}
 	.skills-content {
@@ -126,7 +127,7 @@
 			max-width: 150px;
 		}
 	}
-	@media (max-width: 950px) {
+	@media (max-width: 1100px) {
 		.work-layout {
 			grid-template-columns: 1fr;
 			gap: 30px;
@@ -159,9 +160,7 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 25px;
 	}
-	@media (max-width: 800px) {
-	}
-	@media (max-width: 600px) {
+	@media (max-width: 740px) {
 		.project-grid,
 		.additional-grid {
 			grid-template-columns: 1fr;

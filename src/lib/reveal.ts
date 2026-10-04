@@ -16,14 +16,20 @@ export const reveal: Action<HTMLElement> = (node) => {
 		{ threshold: 0.08 }
 	);
 	observer.observe(node);
+	const revealFocused = () => {
+		node.classList.remove('reveal-pending', 'reveal-visible');
+		observer.disconnect();
+	};
+	node.addEventListener('focusin', revealFocused);
 	const show = () => {
-		if (preference.matches) node.classList.remove('reveal-pending');
+		if (preference.matches) revealFocused();
 	};
 	preference.addEventListener('change', show);
 	return {
 		destroy() {
 			observer.disconnect();
 			preference.removeEventListener('change', show);
+			node.removeEventListener('focusin', revealFocused);
 		}
 	};
 };

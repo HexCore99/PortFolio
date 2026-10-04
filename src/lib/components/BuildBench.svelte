@@ -23,7 +23,13 @@
 					class="window-mark">↗</span
 				>
 			</div>
-			<img src={asset('projects/taskora.webp')} width="1400" height="834" alt="" />
+			<img
+				src={asset('projects/taskora.webp')}
+				width="1400"
+				height="834"
+				fetchpriority="high"
+				alt=""
+			/>
 		</div>
 		<div class="code-card" aria-hidden="true">
 			<div class="code-title">

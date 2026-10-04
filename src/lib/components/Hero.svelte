@@ -2,6 +2,7 @@
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
 	import BuildBench from './BuildBench.svelte';
+	import ResumeLink from './ResumeLink.svelte';
 </script>
 
 <section class="hero" aria-labelledby="hero-title">
@@ -36,18 +37,22 @@
 					href="#contact">Get in touch <Icon name="mail" size={19} /></NeoButton
 				>
 			</div>
+			<div class="hero-resume"><ResumeLink /></div>
 		</div>
 		<BuildBench />
 	</div>
 </section>
 
 <style>
+	.hero-resume {
+		margin-top: 14px;
+	}
 	.hero {
 		padding-block: 83px 65px;
 	}
 	.hero-grid {
 		display: grid;
-		grid-template-columns: 1.2fr 1fr;
+		grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
 		align-items: center;
 		gap: 52px;
 	}
@@ -75,8 +80,8 @@
 	}
 	.hero-description {
 		color: var(--muted);
-		font-size: 15px;
-		line-height: 1.85;
+		font-size: 16px;
+		line-height: 1.8;
 		margin-top: 25px;
 		max-width: 485px;
 	}

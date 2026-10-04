@@ -47,6 +47,13 @@
 	>
 		{#if name === 'C'}
 			<path d="m12 2 9 5v10l-9 5-9-5V7Z" /><path d="M16 8a6 6 0 1 0 0 8" />
+		{:else if name === 'TypeScript'}
+			<rect x="2" y="2" width="20" height="20" rx="1" fill="currentColor" stroke="none" />
+			<path
+				d="M5 10h6m-3 0v9m11-8c-4-3-7 1-3 3l1 .5c4 2 1 6-3 3"
+				stroke="var(--skill-background, white)"
+				stroke-width="1.8"
+			/>
 		{:else if name === 'SDL3'}
 			<rect x="2" y="3" width="20" height="15" rx="2" /><path
 				d="M8 22h8m-4-4v4M6 8h5m-5 4h3m6-4 3 3-3 3"

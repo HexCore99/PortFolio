@@ -64,13 +64,14 @@
 		box-shadow: 0 4px 0 #182a4125;
 	}
 	.project-copy {
+		min-width: 0;
 		padding: 29px;
 		display: flex;
 		flex-direction: column;
 		flex: 1;
 	}
 	.project-category {
-		font: 600 10px var(--mono);
+		font: 600 11px/1.6 var(--mono);
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		color: var(--muted);
@@ -80,6 +81,7 @@
 		gap: 8px;
 	}
 	h3 {
+		text-wrap: balance;
 		font-size: 28px;
 		font-weight: 750;
 		line-height: 1.13;
@@ -106,6 +108,8 @@
 		margin: 24px 0 26px;
 	}
 	.project-tag {
+		max-width: 100%;
+		overflow-wrap: anywhere;
 		padding: 4px 8px;
 		border-radius: 2px;
 		background: #eaf0f1;
@@ -117,6 +121,8 @@
 		color: #dce6f1;
 	}
 	.project-links {
+		--button-size: 12px;
+		--button-padding: 11px 14px;
 		margin-top: auto;
 		display: flex;
 		flex-wrap: wrap;
@@ -179,6 +185,7 @@
 	}
 	.compact {
 		display: grid;
+		grid-template-rows: auto 1fr;
 		grid-template-columns: minmax(0, 1fr);
 	}
 	.compact .visual-wrap {
@@ -193,7 +200,7 @@
 		font-size: 21px;
 	}
 	.compact .summary {
-		font-size: 13px;
+		font-size: 14px;
 		font-weight: 400;
 		color: var(--muted);
 	}
@@ -201,7 +208,7 @@
 		margin: 18px 0;
 	}
 	.compact .project-category {
-		font-size: 9px;
+		font-size: 10px;
 	}
 	@media (max-width: 1100px) {
 		.featured .project-copy {

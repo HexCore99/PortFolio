@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { education } from '#lib/data/portfolio.js';
-	import { NeoPill } from '@dvcol/neo-svelte/pill';
 </script>
 
 <div class="education-details">
@@ -15,7 +14,7 @@
 		<h4>Relevant coursework</h4>
 		<ul>
 			{#each education.coursework as course (course)}
-				<li><NeoPill class="course-chip" elevation={0} rounded={false}>{course}</NeoPill></li>
+				<li class="course-chip">{course}</li>
 			{/each}
 		</ul>
 	</div>
@@ -58,6 +57,10 @@
 		line-height: 1.8;
 		color: var(--muted);
 	}
+	.study-meta span + span {
+		padding-left: 18px;
+		border-left: 1px solid var(--line);
+	}
 	h4 {
 		margin: 0 0 14px;
 		font-size: 12px;
@@ -79,14 +82,14 @@
 	li {
 		max-width: 100%;
 	}
-	.coursework :global(.course-chip) {
+	.course-chip {
 		padding: 9px 13px;
-		border: 1px solid #c4ccd7;
-		border-radius: 6px;
+		border: 0;
+		border-radius: 3px;
 		background: #edf0f3;
 		font-size: 13px;
 		line-height: 1.5;
-		box-shadow: 2px 3px 0 #182a4112;
+		color: var(--muted);
 		max-width: 100%;
 	}
 	.scholarship {

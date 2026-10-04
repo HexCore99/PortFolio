@@ -1,8 +1,39 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
 	import { profile } from '#lib/data/portfolio.js';
 	let open = $state(false);
+	let activeSection = $state('#top');
+	onMount(() => {
+		const sections = ['top', 'work', 'about', 'contact']
+			.map((id) => document.getElementById(id))
+			.filter((node): node is HTMLElement => node !== null);
+		let frame = 0;
+		const update = () => {
+			frame = 0;
+			activeSection =
+				'#' + (sections.findLast((node) => node.getBoundingClientRect().top <= 160)?.id ?? 'top');
+			if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4)
+				activeSection = '#contact';
+		};
+		const onScroll = () => {
+			if (!frame) frame = requestAnimationFrame(update);
+		};
+		const desktop = window.matchMedia('(min-width: 701px)');
+		const onResize = () => {
+			if (desktop.matches) open = false;
+			onScroll();
+		};
+		update();
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onResize);
+		return () => {
+			cancelAnimationFrame(frame);
+			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', onResize);
+		};
+	});
 	let menuButton = $state<HTMLButtonElement>();
 	const links = [
 		{ href: '#top', label: 'Home' },
@@ -47,6 +78,7 @@
 		<nav class:open aria-label="Main navigation" id="main-navigation">
 			{#each links as link (link.href)}<a
 					class="nav-tab"
+					aria-current={activeSection === link.href ? 'location' : undefined}
 					href={link.href}
 					onclick={() => (open = false)}>{link.label}</a
 				>{/each}
@@ -66,11 +98,14 @@
 
 <style>
 	.site-header {
-		position: sticky;
+		position: fixed;
 		top: 0;
+		inset-inline: 0;
+		padding-top: env(safe-area-inset-top, 0px);
 		z-index: 20;
 		background: var(--paper);
-		border-bottom: 1px solid var(--line);
+		border-bottom: 1px solid var(--ink);
+		box-shadow: 0 5px 20px #182a410a;
 	}
 	.nav-inner {
 		min-height: 86px;
@@ -187,6 +222,8 @@
 			display: none;
 			position: absolute;
 			top: 100%;
+			max-height: calc(100dvh - 90px - env(safe-area-inset-top, 0px));
+			overflow-y: auto;
 			left: 0;
 			right: 0;
 			background: var(--paper);
@@ -235,6 +272,10 @@
 	nav .nav-tab:active {
 		translate: 0 1px;
 		box-shadow: 0 1px 0 #8b9cb2;
+	}
+	nav .nav-tab[aria-current='location'] {
+		background: #f4d5bf;
+		box-shadow: 0 3px 0 #a78b76;
 	}
 	@media (max-width: 700px) {
 		nav.open {

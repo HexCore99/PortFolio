@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { NeoButton } from '@dvcol/neo-svelte/buttons';
 	import Icon from './Icon.svelte';
+	import ResumeLink from './ResumeLink.svelte';
 	import { profile } from '#lib/data/portfolio.js';
 </script>
 
@@ -53,6 +54,7 @@
 					></NeoButton
 				>
 			</div>
+			<ResumeLink />
 		</div>
 	</div>
 	<div class="footer-band">
@@ -71,7 +73,7 @@
 		border-top: 4px solid #e9b58d;
 	}
 	footer {
-		scroll-margin-top: 105px;
+		scroll-margin-top: 15px;
 		padding-top: 15px;
 	}
 	.contact-section {
@@ -127,6 +129,7 @@
 		padding-top: 27px;
 	}
 	.contact-links {
+		--button-shadow: 0 3px 0 #182a41;
 		display: flex;
 		gap: 15px;
 		flex-wrap: wrap;
@@ -155,7 +158,7 @@
 			padding: 25px 21px;
 		}
 		h2 {
-			font-size: 47px;
+			font-size: clamp(34px, 11vw, 47px);
 			letter-spacing: -2px;
 		}
 		.contact-copy p {
@@ -166,9 +169,11 @@
 			gap: 10px;
 		}
 		.contact-links {
+			width: 100%;
 			gap: 13px;
 		}
 		.contact-links :global(.button) {
+			flex: 1 1 140px;
 			font-size: 12px;
 			padding-inline: 13px;
 			gap: 10px;
