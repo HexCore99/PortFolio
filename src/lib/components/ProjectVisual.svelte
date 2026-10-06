@@ -37,26 +37,27 @@
 			</div>
 			<div class="visual-bottom"><span>PROBLEM → SOLUTION</span><span>QuickJudge</span></div>
 		</div>
-	{:else if project.visual === 'gear'}
+	{:else if project.visual === 'archive'}
 		<div
-			class="technical gear"
+			class="technical archive"
 			role="img"
-			aria-label="GearGuard workflow illustration: equipment inventory connects to checkout and return."
+			aria-label="HexSolve programming archive illustration: fundamentals lead into algorithms and data structures."
 		>
 			<div class="visual-label">
-				<span class="tiny-square"></span> EQUIPMENT, IN CIRCULATION <span>↻</span>
+				<span class="tiny-square"></span> PROGRAMMING, ORGANIZED <span>{'{ }'}</span>
 			</div>
-			<div class="gear-flow">
-				<div class="equipment">
-					<div class="ball"></div>
-					<div class="racket"></div>
+			<div class="archive-flow">
+				<div class="code-window" aria-hidden="true">
+					<span>for ( )</span>
+					<i></i><i></i><i></i>
 				</div>
-				<div class="gear-route">
-					<span><i></i> Inventory</span><span class="route-line"></span><span><i></i> Checkout</span
-					><span class="route-line"></span><span><i></i> Return</span>
+				<div class="topic-route">
+					<span><i></i> Fundamentals</span><span class="route-line"></span><span
+						><i></i> Search &amp; sort</span
+					><span class="route-line"></span><span><i></i> DSA</span>
 				</div>
 			</div>
-			<div class="visual-bottom"><span>TRACK. CHECK OUT. RETURN.</span><span>GearGuard</span></div>
+			<div class="visual-bottom"><span>LEARN. SOLVE. REVISIT.</span><span>HexSolve</span></div>
 		</div>
 	{/if}
 </div>
@@ -167,73 +168,65 @@
 		place-items: center;
 		font-size: 22px;
 	}
-	.gear-flow {
+	.archive-flow {
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
 		gap: 24px;
 		padding: 18px 0;
 	}
-	.equipment {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-	}
-	.ball {
-		height: 68px;
-		width: 68px;
+	.code-window {
+		width: 104px;
+		min-height: 76px;
 		border: 2px solid #344b42;
-		border-radius: 50%;
+		border-radius: 7px;
 		position: relative;
-		overflow: hidden;
+		padding: 18px 14px 12px;
+		background: var(--cream);
+		box-shadow: 5px 5px 0 #344b42;
+		font: 15px var(--mono);
+		color: var(--blue);
 	}
-	.ball::before {
+	.code-window::before {
 		content: '';
 		position: absolute;
-		inset: 0 18px;
-		border-left: 1px solid #344b42;
-		border-right: 1px solid #344b42;
+		top: 7px;
+		left: 10px;
+		width: 5px;
+		height: 5px;
 		border-radius: 50%;
+		background: var(--coral);
+		box-shadow:
+			9px 0 0 #d1a748,
+			18px 0 0 #739b7d;
 	}
-	.ball::after {
-		content: '';
-		position: absolute;
-		top: 33px;
-		left: 0;
-		width: 100%;
-		border-top: 1px solid #344b42;
-		transform: rotate(-30deg);
+	.code-window i {
+		display: block;
+		height: 3px;
+		margin-top: 8px;
+		background: #91a3ae;
 	}
-	.racket {
-		width: 39px;
-		height: 50px;
-		border: 2px solid #344b42;
-		border-radius: 50%;
-		position: relative;
-		margin-bottom: 27px;
-		transform: rotate(25deg);
-		background: #9cad86;
+	.code-window i:nth-of-type(1) {
+		width: 72%;
 	}
-	.racket::after {
-		content: '';
-		position: absolute;
-		height: 32px;
-		width: 4px;
-		background: #344b42;
-		left: 16px;
-		top: 46px;
-		border-radius: 3px;
+	.code-window i:nth-of-type(2) {
+		width: 88%;
+		margin-left: 9px;
 	}
-	.gear-route {
+	.code-window i:nth-of-type(3) {
+		width: 55%;
+		margin-left: 9px;
+	}
+	.topic-route {
 		font: 11px var(--mono);
 		color: #34465f;
 	}
-	.gear-route > span {
+	.topic-route > span {
 		display: flex;
 		align-items: center;
 		gap: 10px;
 	}
-	.gear-route i {
+	.topic-route i {
 		width: 6px;
 		height: 6px;
 		border: 1px solid var(--blue);

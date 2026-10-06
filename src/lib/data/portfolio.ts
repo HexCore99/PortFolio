@@ -7,11 +7,12 @@ export type Project = {
 	category: string;
 	tags: string[];
 	repositoryUrl: string;
+	repositoryLabel?: string;
 	releaseUrl?: string;
 	image?: { src: AssetPath; alt: string; width: number; height: number };
 	featured: boolean;
 	additional?: boolean;
-	visual?: 'judge' | 'gear';
+	visual?: 'judge' | 'archive';
 };
 
 export const profile = {
@@ -72,15 +73,21 @@ export const projects: Project[] = [
 		featured: false
 	},
 	{
-		id: 'gearguard',
-		title: 'GearGuard',
-		category: 'Web application · Equipment management',
-		summary: 'An organized approach to university sports equipment.',
+		id: 'hexsolve',
+		title: 'HexSolve',
+		category: 'Learning resource · Problem solving',
+		summary: 'A growing archive of programming solutions and core CS practice.',
 		detail:
-			'Track availability, equipment health, and maintenance needs through a clear checkout experience for university students and staff.',
-		tags: ['React', 'Vite', 'Tailwind CSS', 'React Router'],
-		repositoryUrl: 'https://github.com/HexCore99/GearGuard',
-		visual: 'gear',
+			'Organized solutions across loops, arrays, strings, functions, pointers, structures, recursion, sorting, searching, linked lists, and graphs.',
+		tags: ['C', 'C++', 'Data Structures', 'Algorithms', 'Problem Solving'],
+		repositoryUrl: 'https://hexcore99.github.io/',
+		repositoryLabel: 'Explore solutions',
+		image: {
+			src: 'projects/hexsolve.png',
+			alt: 'HexSolve programming solutions site showing a loop problem, sample input and output, C solution code, and topic navigation.',
+			width: 1381,
+			height: 827
+		},
 		featured: false
 	},
 	{

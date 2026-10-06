@@ -5,6 +5,7 @@
 	import ProjectVisual from './ProjectVisual.svelte';
 	import Icon from './Icon.svelte';
 	let { project, compact = false }: { project: Project; compact?: boolean } = $props();
+	let repositoryLabel = $derived(project.repositoryLabel ?? 'GitHub source');
 </script>
 
 <article
@@ -36,8 +37,11 @@
 				class="button button-secondary"
 				href={project.repositoryUrl}
 				{...{ target: '_blank', rel: 'noreferrer' }}
-				aria-label={`${project.title} GitHub source (opens in a new tab)`}
-				><Icon name="github" size={16} /> GitHub source <Icon name="arrow" size={15} /></NeoButton
+				aria-label={`${project.title} ${repositoryLabel} (opens in a new tab)`}
+				>{#if !project.repositoryLabel}<Icon name="github" size={16} />{/if}{repositoryLabel}<Icon
+					name="arrow"
+					size={15}
+				/></NeoButton
 			>{#if project.releaseUrl}<NeoButton
 					elevation={0}
 					hover={0}

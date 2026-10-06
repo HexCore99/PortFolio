@@ -8,7 +8,9 @@ Copied from Siabul Hassan’s public GitHub repositories on 2026-10-04. Images a
 - `snake.png`: [Don’t Be a Snake gameplay](https://github.com/HexCore99/Snake-Game/blob/main/docs/screenshots/Snake_playing1.png)
 - `clock.png`: [7 Segment Digital Clock](https://github.com/HexCore99/digital_clock/blob/main/Pictures/clock1.png)
 
-QuickJudge and GearGuard use original CSS workflow illustrations, not simulated application screenshots. Project descriptions and technologies were checked against repository READMEs. Release buttons use the verified `releases/latest` routes for Taskora and WhoLocks.
+- `hexsolve.png`: User-supplied screenshot of the HexSolve loop-solutions page, added on 2026-10-06.
+
+QuickJudge uses an original CSS workflow illustration, not a simulated application screenshot. Project descriptions and technologies were checked against their public sources. Release buttons use the verified `releases/latest` routes for Taskora and WhoLocks.
 
 ## Skill icons
 

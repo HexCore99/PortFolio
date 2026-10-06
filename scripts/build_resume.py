@@ -18,7 +18,8 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output/pdf/siabul-hassan-resume.pdf"
-PUBLIC = ROOT / "static/siabul-hassan-resume.pdf"
+PUBLIC = ROOT / "static/resume/Siabul-Hassan-Resume.pdf"
+LEGACY_PUBLIC = ROOT / "static/siabul-hassan-resume.pdf"
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 INK = colors.HexColor("#172b40")
 TEXT = colors.HexColor("#28333e")
@@ -103,11 +104,13 @@ def section(title):
     ]
 
 
-def project(title, repo, stack, bullets):
+def project(title, repo, stack, bullets, url=None, display_url=None):
+    project_url = url or f"https://github.com/HexCore99/{repo}"
+    project_display = display_url or f"github.com/HexCore99/{repo}"
     return KeepTogether(
         [
             p(
-                f'{title} <font name="Helvetica" size="8.5" color="#536171"> | <link href="https://github.com/HexCore99/{repo}">github.com/HexCore99/{repo}</link></font>',
+                f'{title} <font name="Helvetica" size="8.5" color="#536171"> | <link href="{project_url}">{project_display}</link></font>',
                 "project",
             ),
             p(stack, "meta"),
@@ -179,12 +182,14 @@ story = [
         ],
     ),
     project(
-        "GearGuard",
-        "GearGuard",
-        "React / Vite / Tailwind CSS / React Router",
+        "HexSolve",
+        "hexcore99.github.io",
+        "C / C++ / Data Structures / Algorithms",
         [
-            "Built a university sports-equipment application for tracking availability, equipment condition, maintenance, and checkout workflows.",
+            "Built an organized programming-solutions archive covering fundamentals, searching, sorting, linked lists, graphs, and other DSA topics.",
         ],
+        url="https://hexcore99.github.io/",
+        display_url="hexcore99.github.io",
     ),
     project(
         "Neural Movie Recommender",
@@ -219,5 +224,6 @@ for required in [
 ]:
     assert required in text, required
 copyfile(OUTPUT, PUBLIC)
+copyfile(OUTPUT, LEGACY_PUBLIC)
 print(f"Created one-page resume: {OUTPUT} ({OUTPUT.stat().st_size:,} bytes)")
 print(f"Public copy: {PUBLIC}")

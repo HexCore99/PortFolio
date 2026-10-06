@@ -54,7 +54,7 @@
 		Taskora: { id: 'project-taskora', color: '#b7b9ff' },
 		WhoLocks: { id: 'project-wholocks', color: '#ff5d8f' },
 		QuickJudge: { id: 'project-quickjudge', color: '#ffd23f' },
-		GearGuard: { id: 'project-gearguard', color: '#9fd8cb' },
+		HexSolve: { id: 'project-hexsolve', color: '#9fd8cb' },
 		Recommender: { id: 'project-movies', color: '#ffb98a' },
 		Snake: { id: 'project-snake', color: '#c9f27a' },
 		Clock: { id: 'project-clock', color: '#f5a8ff' }
@@ -78,7 +78,7 @@
 				category: 'Frontend',
 				accent: '#61dafb',
 				text: darkText,
-				projects: ['Taskora', 'QuickJudge', 'GearGuard']
+				projects: ['Taskora', 'QuickJudge']
 			},
 			{
 				name: 'Zustand',
@@ -170,21 +170,21 @@
 				category: 'Frontend',
 				accent: '#38bdf8',
 				text: darkText,
-				projects: ['GearGuard']
+				projects: []
 			},
 			{
 				name: 'Vite',
 				category: 'Frontend',
 				accent: '#a78bfa',
 				text: darkText,
-				projects: ['GearGuard']
+				projects: []
 			},
 			{
 				name: 'React Router',
 				category: 'Frontend',
 				accent: '#ef4444',
 				text: lightText,
-				projects: ['GearGuard']
+				projects: []
 			}
 		],
 		[
@@ -193,7 +193,7 @@
 				category: 'Languages',
 				accent: '#00599c',
 				text: lightText,
-				projects: ['Snake', 'Clock']
+				projects: ['HexSolve', 'Snake', 'Clock']
 			},
 			{
 				name: 'raylib',
@@ -220,7 +220,13 @@
 			}
 		],
 		[
-			{ name: 'C', category: 'Languages', accent: '#6a7bd6', text: lightText, projects: [] },
+			{
+				name: 'C',
+				category: 'Languages',
+				accent: '#6a7bd6',
+				text: lightText,
+				projects: ['HexSolve']
+			},
 			{ name: 'Java', category: 'Languages', accent: '#f89820', text: darkText, projects: [] },
 			{
 				name: 'JavaScript',
