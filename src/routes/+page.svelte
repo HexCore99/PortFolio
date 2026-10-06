@@ -14,10 +14,10 @@
 </script>
 
 <svelte:head>
-	<title>Siabul Hassan — Full-Stack Developer</title>
+	<title>Siabul Hassan — Software Engineer</title>
 	<meta name="description" content={description} />
 	<meta name="theme-color" content="#f6f3ea" />
-	<meta property="og:title" content="Siabul Hassan — Full-Stack Developer" />
+	<meta property="og:title" content="Siabul Hassan — Software Engineer" />
 	<meta property="og:description" content={description} />
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="en_US" />
@@ -29,7 +29,7 @@
 		content="Siabul Hassan — Software Developer. Building useful software across web, desktop, and systems."
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Siabul Hassan — Full-Stack Developer" />
+	<meta name="twitter:title" content="Siabul Hassan — Software Engineer" />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={asset('social-preview.png')} />
 	<meta
