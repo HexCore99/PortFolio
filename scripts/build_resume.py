@@ -127,7 +127,7 @@ story = [
         "contact",
     ),
     p(
-        '<link href="https://github.com/HexCore99/">github.com/HexCore99</link> | <link href="https://www.linkedin.com/in/siabul-hassan/">linkedin.com/in/siabul-hassan</link>',
+        '<link href="https://github.com/HexCore99/">github.com/HexCore99</link> | <link href="https://www.linkedin.com/in/siabul-hassan/">linkedin.com/in/siabul-hassan</link> | Portfolio: <link href="https://siabulhassan.xyz/">siabulhassan.xyz</link>',
         "contact",
     ),
     Spacer(1, 10),
@@ -221,6 +221,8 @@ for required in [
     "WhoLocks",
     "Neural Movie Recommender",
     "1572-923076",
+    "HexSolve",
+    "siabulhassan.xyz",
 ]:
     assert required in text, required
 copyfile(OUTPUT, PUBLIC)
