@@ -49,7 +49,7 @@ export const projects: Project[] = [
 		summary: 'Find the process standing between you and your files.',
 		detail:
 			'A Windows utility that identifies processes locking files or folders, with File Explorer integration and both CLI and GUI workflows.',
-		tags: ['Rust', 'Windows', 'File-system tools', 'CLI', 'Desktop'],
+		tags: ['Rust', 'GPUI', 'Windows', 'File-system tools', 'CLI', 'Desktop'],
 		repositoryUrl: 'https://github.com/HexCore99/wholocks',
 		releaseUrl: 'https://github.com/HexCore99/wholocks/releases/latest',
 		image: {
@@ -69,7 +69,12 @@ export const projects: Project[] = [
 			'A full-stack online judge and programming-contest platform with problem sets, submissions, leaderboards, and authenticated student and admin workflows.',
 		tags: ['React', 'Express', 'MySQL', 'Redux Toolkit', 'JWT'],
 		repositoryUrl: 'https://github.com/HexCore99/QuickJudge',
-		visual: 'judge',
+		image: {
+			src: 'projects/quickjudge.png',
+			alt: 'QuickJudge contest submissions page showing programming submissions and their verdicts.',
+			width: 1870,
+			height: 994
+		},
 		featured: false
 	},
 	{
@@ -106,6 +111,24 @@ export const projects: Project[] = [
 			height: 945
 		},
 		featured: false
+	},
+	{
+		id: 'color-picker',
+		title: 'Color Picker',
+		category: 'Windows · Desktop utility',
+		summary:
+			'Sample a color from anywhere on screen, adjust its RGB sliders, and copy the result as HEX, RGB, HSL, or HSV.',
+		detail: '',
+		tags: ['Rust', 'GPUI', 'Windows'],
+		repositoryUrl: 'https://github.com/HexCore99/color-picker',
+		image: {
+			src: 'projects/color-picker.png',
+			alt: 'Color Picker showing a blue swatch, RGB sliders, and values in four color formats.',
+			width: 704,
+			height: 386
+		},
+		featured: false,
+		additional: true
 	},
 	{
 		id: 'snake',
@@ -173,7 +196,7 @@ export const skills = [
 	},
 	{
 		title: 'Desktop and tools',
-		items: ['Tauri 2', 'raylib', 'SDL3', 'CLI tools', 'Windows file-system tooling']
+		items: ['GPUI', 'Tauri 2', 'raylib', 'SDL3', 'CLI tools', 'Windows file-system tooling']
 	}
 ];
 

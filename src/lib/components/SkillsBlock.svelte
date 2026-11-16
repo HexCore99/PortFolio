@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { resolve } from '$app/paths';
+	import { projects as portfolioProjects } from '#lib/data/portfolio.js';
 	import SectionHeading from './SectionHeading.svelte';
 	import SkillIcon from './SkillIcon.svelte';
 
@@ -53,6 +54,7 @@
 	const projectThemes: Record<string, ProjectTheme> = {
 		Taskora: { id: 'project-taskora', color: '#b7b9ff' },
 		WhoLocks: { id: 'project-wholocks', color: '#ff5d8f' },
+		'Color Picker': { id: 'project-color-picker', color: '#8bd8ff' },
 		QuickJudge: { id: 'project-quickjudge', color: '#ffd23f' },
 		HexSolve: { id: 'project-hexsolve', color: '#9fd8cb' },
 		Recommender: { id: 'project-movies', color: '#ffb98a' },
@@ -69,7 +71,14 @@
 				category: 'Languages',
 				accent: '#f26b3a',
 				text: darkText,
-				projects: ['Taskora', 'WhoLocks']
+				projects: ['Taskora', 'WhoLocks', 'Color Picker']
+			},
+			{
+				name: 'GPUI',
+				category: 'Desktop and tools',
+				accent: '#8bd8ff',
+				text: darkText,
+				projects: ['WhoLocks', 'Color Picker']
 			}
 		],
 		[
@@ -259,7 +268,9 @@
 		]
 	];
 
-	let skillsTable: HTMLDivElement;
+	const otherProjectIds = new Set(
+		portfolioProjects.filter((p) => p.additional && !p.featured).map((p) => `project-${p.id}`)
+	);
 	let highlightedProjects = $state<string[] | null>(null);
 
 	function highlight(projects: string[]) {
@@ -270,7 +281,7 @@
 		highlightedProjects = null;
 	}
 
-	onMount(() => {
+	function revealRows(skillsTable: HTMLDivElement) {
 		const rows = skillsTable.querySelectorAll<HTMLElement>('.project-row');
 		if (!('IntersectionObserver' in window)) {
 			rows.forEach((row) => row.classList.add('is-visible'));
@@ -291,7 +302,7 @@
 
 		rows.forEach((row) => observer.observe(row));
 		return () => observer.disconnect();
-	});
+	}
 
 	function categoryTheme(category: CategoryName) {
 		return categories.find((item) => item.name === category) ?? categories[0];
@@ -325,7 +336,7 @@
 		</ul>
 	</div>
 
-	<div class="skills-table" bind:this={skillsTable}>
+	<div class="skills-table" {@attach revealRows}>
 		<div class="table-heading" aria-hidden="true">
 			<span>Skill (hover one)</span><span>Where I used it</span>
 		</div>
@@ -356,7 +367,7 @@
 					<div class="project-list" aria-label="Projects using these skills">
 						{#each projects as project, index (project)}
 							<a
-								href={`#${projectThemes[project].id}`}
+								href={`${otherProjectIds.has(projectThemes[project].id) ? resolve('projects/') : ''}#${projectThemes[project].id}`}
 								style={projectStyle(project, index)}
 								class:dimmed={highlightedProjects !== null &&
 									!highlightedProjects.includes(project)}>{project}</a

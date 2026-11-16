@@ -54,6 +54,8 @@
 				stroke="var(--skill-background, white)"
 				stroke-width="1.8"
 			/>
+		{:else if name === 'GPUI'}
+			<rect x="2" y="3" width="20" height="17" rx="2" /><path d="M2 8h20M8 8v12" />
 		{:else if name === 'SDL3'}
 			<rect x="2" y="3" width="20" height="15" rx="2" /><path
 				d="M8 22h8m-4-4v4M6 8h5m-5 4h3m6-4 3 3-3 3"

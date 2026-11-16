@@ -8,7 +8,7 @@
 	import ExperienceBlock from '#lib/components/ExperienceBlock.svelte';
 	import Footer from '#lib/components/Footer.svelte';
 	import { projects } from '#lib/data/portfolio.js';
-	import { asset } from '$app/paths';
+	import { asset, resolve } from '$app/paths';
 	const description =
 		'Siabul Hassan builds practical software across web, desktop, and systems. Explore Taskora, WhoLocks, full-stack applications, and C++ projects.';
 </script>
@@ -45,7 +45,7 @@
 	<Hero />
 	<section id="work" class="work-section section" aria-labelledby="work-title">
 		<div class="container work-layout">
-			<div class="section-rail"><SectionHeading id="work-title" title="Selected work" /></div>
+			<div class="section-rail"><SectionHeading id="work-title" title="Top Work" /></div>
 			<div class="work-content">
 				{#each projects.filter((project) => project.featured) as project (project.id)}<ProjectCard
 						{project}
@@ -55,21 +55,10 @@
 							{project}
 						/>{/each}
 				</div>
+				<div class="view-more">
+					<a class="button button-primary" href={resolve('projects/')} aria-label="View More projects">View More</a>
+				</div>
 			</div>
-		</div>
-	</section>
-	<section
-		class="section additional-section container work-layout"
-		aria-labelledby="additional-title"
-	>
-		<div class="section-rail">
-			<SectionHeading id="additional-title" title="Additional builds" />
-		</div>
-		<div class="additional-grid">
-			{#each projects.filter((project) => project.additional) as project (project.id)}<ProjectCard
-					{project}
-					compact
-				/>{/each}
 		</div>
 	</section>
 	<section
@@ -95,7 +84,6 @@
 
 <style>
 	.education-section,
-	.experience-section,
 	#about {
 		padding-top: 0;
 	}
@@ -105,8 +93,7 @@
 		gap: 40px;
 		align-items: start;
 	}
-	.work-content,
-	.additional-grid {
+	.work-content {
 		min-width: 0;
 	}
 	.section-rail {
@@ -152,6 +139,7 @@
 		}
 	}
 	.work-section {
+		padding-bottom: 14px;
 		background: var(--work-background);
 		border-block: 1px solid var(--line);
 	}
@@ -161,14 +149,13 @@
 		gap: 25px;
 		margin-top: 25px;
 	}
-	.additional-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 25px;
+	.view-more {
+		display: flex;
+		justify-content: center;
+		margin-top: 28px;
 	}
 	@media (max-width: 740px) {
-		.project-grid,
-		.additional-grid {
+		.project-grid {
 			grid-template-columns: 1fr;
 			gap: 22px;
 		}
